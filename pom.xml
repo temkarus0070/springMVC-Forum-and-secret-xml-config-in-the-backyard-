@@ -18,6 +18,7 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
     <spring.version>5.3.9</spring.version>
+    <springSecure.version>5.5.1</springSecure.version>
   </properties>
 
   <dependencies>
@@ -66,6 +67,37 @@
       <scope>provided</scope>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+    <dependency>
+      <groupId>org.hibernate.validator</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>6.2.0.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-core</artifactId>
+      <version>${springSecure.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-web</artifactId>
+      <version>${springSecure.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-config</artifactId>
+      <version>${springSecure.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.2.23</version>
+    </dependency>
+
 
 
   </dependencies>
@@ -105,5 +137,15 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>10</source>
+          <target>10</target>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>

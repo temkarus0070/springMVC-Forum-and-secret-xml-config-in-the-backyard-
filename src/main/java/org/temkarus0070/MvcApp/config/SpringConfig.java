@@ -5,17 +5,18 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.temkarus0070.MvcApp.HelloController;
+import org.temkarus0070.MvcApp.controllers.PeopleController;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 @Configuration
-@ComponentScan(basePackageClasses = HelloController.class)
+@ComponentScan("org.temkarus0070.MvcApp")
 @EnableWebMvc
 public class SpringConfig implements WebMvcConfigurer {
     private final ApplicationContext applicationContext;
@@ -32,6 +33,11 @@ public class SpringConfig implements WebMvcConfigurer {
         templateResolver.setPrefix("/WEB-INF/views/");
         templateResolver.setSuffix(".html");
         return templateResolver;
+    }
+
+    @Bean
+    public StandardServletMultipartResolver multipartResolver(){
+        return new StandardServletMultipartResolver();
     }
 
 
