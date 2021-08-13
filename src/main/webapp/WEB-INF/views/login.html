@@ -4,16 +4,37 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         form div{
             margin-bottom: 20px;
         }
 
-        input[type=submit] {
-            background-color: dodgerblue;
+        .btn {
+            background-color:beige;
+            border-radius: 15px;
+            font-weight: bold;
+        }
+
+        .btn:hover{
+            background-color: cadetblue;
+        }
+
+        input{
+            border-radius: 20px;
+        }
+
+        a{
+            background-color: beige;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
+<div class="container">
 <form name="f" th:action="@{/login}" method="post">
     <fieldset>
         <legend>Please Login</legend>
@@ -41,5 +62,6 @@
     </fieldset>
 </form>
 <a th:href="@{/register}" th:text="Register"></a>
+</div>
 </body>
 </html>
