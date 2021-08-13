@@ -3,7 +3,9 @@ package org.temkarus0070.MvcApp.models;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class User implements UserDetails {
 
@@ -11,7 +13,20 @@ public class User implements UserDetails {
     private String username;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        GrantedAuthority grantedAuthority=new GrantedAuthority() {
+            @Override
+            public String getAuthority() {
+                return "USER";
+            }
+        };
+        List<GrantedAuthority> grantedAuthorities=new ArrayList<>();
+        grantedAuthorities.add(grantedAuthority);
+        return grantedAuthorities;
+    }
+
+
+   UserDetails  getUser(){
+        return this;
     }
 
     public void setPassword(String password) {

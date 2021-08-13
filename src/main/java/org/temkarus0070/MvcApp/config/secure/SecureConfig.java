@@ -62,7 +62,7 @@ public class SecureConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST,"/Sections").authenticated()
                 .antMatchers("/register").permitAll()
                 .anyRequest().authenticated()
-                .and()
+                .and().logout().and()
                 .rememberMe();
     }
 

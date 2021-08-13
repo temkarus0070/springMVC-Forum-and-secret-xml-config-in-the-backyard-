@@ -1,8 +1,6 @@
-<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
 <head>
     <meta charset="UTF-8">
     <title>Header</title>
@@ -10,7 +8,9 @@
 <body>
 <header class="pageHeader">
     <a th:href="@{/about}" th:text="about"></a>
-    <b sec:authorize="isAuthenticated()" th:text="${#authentication.getName()}">Logged user: <span sec:authentication="name"></span></b>
+    <div sec:authorize="isAuthenticated()">
+        Welcome, <span sec:authentication="name">Username</span>
+    </div>
 </header>
 </body>
 </html>
