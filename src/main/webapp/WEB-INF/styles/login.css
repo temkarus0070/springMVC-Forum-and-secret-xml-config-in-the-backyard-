@@ -1,0 +1,7 @@
+form .div{
+    margin-bottom: 40px;
+}
+
+input [type=submit]{
+    background-color: dodgerblue;
+}

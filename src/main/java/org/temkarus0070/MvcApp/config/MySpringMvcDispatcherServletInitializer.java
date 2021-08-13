@@ -6,13 +6,14 @@ import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import org.temkarus0070.MvcApp.config.secure.SecureConfig;
 
 import javax.servlet.*;
 
 public class MySpringMvcDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return null;
+        return new Class[]{SecureConfig.class};
     }
 
     @Override

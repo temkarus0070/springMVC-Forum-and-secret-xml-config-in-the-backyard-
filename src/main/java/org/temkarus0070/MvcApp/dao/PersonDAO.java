@@ -12,41 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class PersonDAO {
+public class PersonDAO  {
     private JdbcTemplate jdbcTemplate=new JdbcTemplate();
 
     @Autowired
     public PersonDAO(JdbcTemplate jdbcTemplate){
         this.jdbcTemplate=jdbcTemplate;
     }
-    private static int PEOPLE_COUNT;
-    private static final String URL="jdbc:postgresql://localhost:5432/postgres";
-    private static final String USERNAME="postgres";
-    private static final String PASSWORD="postgres";
-    private static Connection connection;
-    static{
-        try{
-            Class.forName("org.postgresql.Driver");
-        }
-        catch (ClassNotFoundException e){
-            e.printStackTrace();
-        }
-        try {
-            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-        }
-        catch (SQLException sqlException){
-            sqlException.printStackTrace();
-        }
-        try {
-            Statement statement = connection.createStatement();
-            String query=String.format("SELECT MAX(Id) from Person");
-            int max =statement.executeQuery(query).getInt(0);
-            PEOPLE_COUNT=max+10;
-        }
-        catch (SQLException sqlException){
-            sqlException.printStackTrace();
-        }
-    }
+
     public PersonDAO(){}
 
 

@@ -1,5 +1,9 @@
+<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <html>
 <body>
-<h2>Hello World!</h2>
+<%
+
+        response.sendRedirect("/home");
+%>
 </body>
 </html>
