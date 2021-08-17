@@ -1,6 +1,14 @@
 package org.temkarus0070.MvcApp.models;
 
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Sections")
 public class Section {
+    @Id
     private int id;
     private String name;
 
@@ -19,4 +27,6 @@ public class Section {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Section(){}
 }

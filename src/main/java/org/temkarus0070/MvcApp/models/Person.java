@@ -1,5 +1,6 @@
 package org.temkarus0070.MvcApp.models;
 
+import javax.persistence.Entity;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
