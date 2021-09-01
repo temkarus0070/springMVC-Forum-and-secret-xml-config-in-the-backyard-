@@ -1,16 +1,18 @@
 package org.temkarus0070.MvcApp.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.function.EntityResponse;
+import org.temkarus0070.MvcApp.Exceptions.PostNotFoundException;
 import org.temkarus0070.MvcApp.dao.PostRepository;
 import org.temkarus0070.MvcApp.models.Post;
 
 import java.util.List;
 
-@Controller
+@RestControllerAdvice
+@CrossOrigin(origins = "http://localhost:4200")
+@RestController
 public class PostsController {
     PostRepository postRepository;
 
@@ -19,28 +21,27 @@ public class PostsController {
         this.postRepository = postRepository;
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/posts")
-    public String index(Model model){
+    public List<Post> index(){
         List<Post> postList= postRepository.findAll();
-        model.addAttribute("Posts", postRepository.findAll());
-    return "posts/index";
+       return postList;
     }
 
     @GetMapping("/posts/{postId}")
-    public String showPost(@PathVariable("postId") int postId,Model model){
+    public Post showPost(@PathVariable("postId") int postId){
         Post post=postRepository.findById(postId).get();
-        model.addAttribute("post",post);
-        return "posts/show";
+        if(post==null)
+            throw new PostNotFoundException();
+        return post;
     }
 
-    @GetMapping("/posts/new")
-    public String add(@ModelAttribute Post post, BindingResult bindingResult){
-        return "posts/new";
-    }
 
+
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/posts/new")
-    public String create(@RequestParam Post post){
+    public Post create(@RequestBody Post post){
         postRepository.save(post);
-        return "redirect:/posts/index";
+        return post;
     }
 }

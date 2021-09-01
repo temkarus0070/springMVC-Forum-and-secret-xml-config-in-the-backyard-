@@ -1,9 +1,7 @@
 package org.temkarus0070.MvcApp.config;
 
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
-import org.springframework.web.context.support.GenericWebApplicationContext;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
-import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import org.temkarus0070.MvcApp.config.secure.SecureConfig;
@@ -13,12 +11,13 @@ import javax.servlet.*;
 public class MySpringMvcDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{SecureConfig.class};
+        return new Class[]{SecureConfig.class,SpringConfig.class};
     }
+
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{SpringConfig.class};
+        return null;
     }
 
     @Override
@@ -50,6 +49,7 @@ public class MySpringMvcDispatcherServletInitializer extends AbstractAnnotationC
                 new HiddenHttpMethodFilter()).addMappingForUrlPatterns(
                 null,true,"/*"
         );
+
 
     }
 }

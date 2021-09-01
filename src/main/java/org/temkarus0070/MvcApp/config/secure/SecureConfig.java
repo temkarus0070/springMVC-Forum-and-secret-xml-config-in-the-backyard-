@@ -16,6 +16,11 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.temkarus0070.MvcApp.dao.RegisterDAO;
 
 import javax.sql.DataSource;
@@ -28,13 +33,20 @@ import javax.xml.crypto.Data;
 public class SecureConfig extends WebSecurityConfigurerAdapter {
 
 
-    private PasswordEncoder passwordEncoder;
 
-    @Deprecated
+
+
+
     @Bean
-    public static NoOpPasswordEncoder passwordEncoder() {
-        return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
+    public PasswordEncoder passwordEncoder() {
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(auth.getDefaultUserDetailsService()).passwordEncoder(passwordEncoder());
+    }
+
 
     private DataSource dataSource;
     {
@@ -55,21 +67,35 @@ public class SecureConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin().loginPage("/login").permitAll().and()
+     /* http.cors();
+        http.csrf().disable().httpBasic().and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST,"/Posts")
+                .antMatchers(HttpMethod.POST,"/posts")
                         .authenticated()
-                .antMatchers(HttpMethod.POST,"/Sections").authenticated()
+                .antMatchers(HttpMethod.POST,"/sections").authenticated()
                 .antMatchers("/register").permitAll()
                 .anyRequest().authenticated()
                 .and().logout().and()
                 .rememberMe();
+*/
+    }
+
+
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**").allowedOrigins("http://localhost:4200");
+            }
+        };
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(new RegisterDAO()).and().jdbcAuthentication()
-                .dataSource(dataSource).passwordEncoder(new BCryptPasswordEncoder(9));
+                .dataSource(dataSource).passwordEncoder(passwordEncoder());
     }
 
 
