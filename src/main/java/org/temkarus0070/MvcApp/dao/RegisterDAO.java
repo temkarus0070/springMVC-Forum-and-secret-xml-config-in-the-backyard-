@@ -2,22 +2,30 @@ package org.temkarus0070.MvcApp.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.security.core.GrantedAuthority;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+import org.temkarus0070.MvcApp.models.MyUserDetails;
 import org.temkarus0070.MvcApp.models.User;
 
-import java.util.Collection;
+import javax.persistence.EntityManager;
 import java.util.HashMap;
-import java.util.TreeMap;
+import java.util.List;
 
 @Component
 public class RegisterDAO implements UserDetailsService {
 
+    LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean;
+    EntityManager  entityManager;
+
+    @Autowired
+    public void setLocalContainerEntityManagerFactoryBean(LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean) {
+        this.localContainerEntityManagerFactoryBean = localContainerEntityManagerFactoryBean;
+        this.entityManager=localContainerEntityManagerFactoryBean.createNativeEntityManager(null);
+    }
 
     static NamedParameterJdbcTemplate namedParameterJdbcTemplate;
     static PasswordEncoder passwordEncoder;
@@ -39,10 +47,10 @@ public class RegisterDAO implements UserDetailsService {
             HashMap<String, Object> map = new HashMap<>();
             map.put("username", s);
             return namedParameterJdbcTemplate.query("SELECT * FROM USERS WHERE username=:username", map, (row, index) -> {
-                User userDetails = new User();
-                userDetails.setUsername(s);
-                userDetails.setPassword(row.getString("password"));
-                return userDetails;
+                MyUserDetails myUserDetailsDetails = new MyUserDetails();
+                myUserDetailsDetails.setUsername(s);
+                myUserDetailsDetails.setPassword(row.getString("password"));
+                return myUserDetailsDetails;
             }).stream().findAny().orElse(null);
         }
         catch (Exception ex){
@@ -52,12 +60,11 @@ public class RegisterDAO implements UserDetailsService {
     }
 
 
-    public void addNew(User entity) {
+    public void addNew(MyUserDetails entity) {
+        List<User> myUserDetails =entityManager.createQuery("select u from User", User.class).getResultList();
         String encodedPass = passwordEncoder.encode(entity.getPassword());
-        TreeMap<String, Object> map = new TreeMap<>();
-        map.put("username", entity.getUsername());
-        map.put("password", encodedPass);
-
-        namedParameterJdbcTemplate.update("INSERT INTO Users(username,password,enabled) VALUES(:username,:password,true) ", map);
+        entity.setPassword(encodedPass);
+        User user=new User(entity);
+        entityManager.persist(user);
     }
 }

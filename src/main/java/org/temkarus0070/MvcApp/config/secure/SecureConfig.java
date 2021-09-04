@@ -33,18 +33,19 @@ import javax.xml.crypto.Data;
 public class SecureConfig extends WebSecurityConfigurerAdapter {
 
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
 
-
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
     }
+
+
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(auth.getDefaultUserDetailsService()).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(auth.getDefaultUserDetailsService()).passwordEncoder(passwordEncoder);
     }
 
 
@@ -67,7 +68,7 @@ public class SecureConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-     /* http.cors();
+     http.cors();
         http.csrf().disable().httpBasic().and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST,"/posts")
@@ -77,7 +78,7 @@ public class SecureConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and().logout().and()
                 .rememberMe();
-*/
+
     }
 
 
@@ -95,7 +96,7 @@ public class SecureConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(new RegisterDAO()).and().jdbcAuthentication()
-                .dataSource(dataSource).passwordEncoder(passwordEncoder());
+                .dataSource(dataSource).passwordEncoder(passwordEncoder);
     }
 
 

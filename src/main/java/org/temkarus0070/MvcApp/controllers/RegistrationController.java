@@ -2,19 +2,23 @@ package org.temkarus0070.MvcApp.controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.*;
 import org.temkarus0070.MvcApp.dao.RegisterDAO;
-import org.temkarus0070.MvcApp.models.User;
+import org.temkarus0070.MvcApp.models.MyUserDetails;
 
-@Controller
+@RestController
 public class RegistrationController {
     private RegisterDAO registerDAO;
+
+
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder=passwordEncoder;
+    }
+
 
 
     @Autowired
@@ -24,16 +28,11 @@ public class RegistrationController {
 
 
 
-
-    @GetMapping("/register")
-    public String register(@ModelAttribute User user){
-        return "register/register";
+    @PostMapping(path = "/register")
+    public void register(@RequestBody MyUserDetails myUserDetails){
+        registerDAO.addNew(myUserDetails);
     }
 
-    @PostMapping("/register")
-    public String registerUser(User user){
-        registerDAO.addNew(user);
-        return "redirect:login";
-    }
+
 
 }

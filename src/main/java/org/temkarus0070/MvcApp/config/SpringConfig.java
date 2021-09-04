@@ -61,7 +61,11 @@ public class SpringConfig extends WebMvcConfigurationSupport{
     }
 
 
-
+    @Bean
+     public static BCryptPasswordEncoder passwordEncoder(){
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        return bCryptPasswordEncoder;
+    }
 
     @Bean
     public DataSource dataSource(){
