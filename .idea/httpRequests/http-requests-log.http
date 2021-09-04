@@ -1,0 +1,22 @@
+GET http://localhost:8080/posts
+
+<> 2021-09-01T122539.404.html
+
+###
+
+GET http://localhost:8080/posts/{{postId}}
+
+###
+
+GET http://localhost:8080/posts
+
+<> 2021-09-01T111806.404.html
+
+###
+
+GET http://localhost:8080/people
+
+<> 2021-09-01T111754.404.html
+
+###
+

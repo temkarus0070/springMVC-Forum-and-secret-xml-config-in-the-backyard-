@@ -1,69 +1,105 @@
 package org.temkarus0070.MvcApp.models;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.ArrayList;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Collection;
-import java.util.List;
+import java.util.HashSet;
 
-public class User implements UserDetails {
+@Entity
+public class User {
 
-    private String password;
-    private String username;
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        GrantedAuthority grantedAuthority=new GrantedAuthority() {
-            @Override
-            public String getAuthority() {
-                return "USER";
-            }
-        };
-        List<GrantedAuthority> grantedAuthorities=new ArrayList<>();
-        grantedAuthorities.add(grantedAuthority);
-        return grantedAuthorities;
+public User(){}
+
+    public User(MyUserDetails myUserDetails){
+    this.username=myUserDetails.getUsername();
+    this.password=myUserDetails.getPassword();
+    if(myUserDetails.getAuthorities()!=null){
+        if(authorities==null)
+            this.authorities=new HashSet<>();
+        this.authorities.addAll(myUserDetails.getAuthorities());
+    }
     }
 
+    @Column
+    private String password;
 
-   UserDetails  getUser(){
-        return this;
+    @Id
+    @Column
+    private String username;
+
+
+    @ElementCollection(targetClass = GrantedAuthority.class)
+    private Collection<GrantedAuthority> authorities;
+
+    @Column
+    private boolean accountNonExpired;
+
+    @Column
+    private boolean accountNonLocked;
+
+    @Column
+    private boolean credentialNonExpired;
+
+    @Column
+    private boolean enabled;
+
+    public String getPassword() {
+        return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
     public String getUsername() {
         return username;
     }
 
-    @Override
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Collection<GrantedAuthority> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(Collection<GrantedAuthority> authorities) {
+        this.authorities = authorities;
+    }
+
     public boolean isAccountNonExpired() {
-        return true;
+        return accountNonExpired;
     }
 
-    @Override
+    public void setAccountNonExpired(boolean accountNonExpired) {
+        this.accountNonExpired = accountNonExpired;
+    }
+
     public boolean isAccountNonLocked() {
-        return true;
+        return accountNonLocked;
     }
 
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
+    public void setAccountNonLocked(boolean accountNonLocked) {
+        this.accountNonLocked = accountNonLocked;
     }
 
-    @Override
+    public boolean isCredentialNonExpired() {
+        return credentialNonExpired;
+    }
+
+    public void setCredentialNonExpired(boolean credentialNonExpired) {
+        this.credentialNonExpired = credentialNonExpired;
+    }
+
     public boolean isEnabled() {
-        return true;
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }

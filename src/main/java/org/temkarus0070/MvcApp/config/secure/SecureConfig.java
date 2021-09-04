@@ -13,7 +13,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
-import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -33,13 +32,20 @@ import javax.xml.crypto.Data;
 @EnableWebSecurity
 public class SecureConfig extends WebSecurityConfigurerAdapter {
 
+
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(new RegisterDAO()).and().jdbcAuthentication()
-                .dataSource(dataSource).passwordEncoder(passwordEncoder);
+
+    public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
+
+
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(auth.getDefaultUserDetailsService()).passwordEncoder(passwordEncoder);
     }
 
 
@@ -62,8 +68,9 @@ public class SecureConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-      http.cors();
-        http.csrf().disable().httpBasic().and().authorizeRequests()
+     http.cors();
+        http.csrf().disable().httpBasic().and()
+                .authorizeRequests()
                 .antMatchers(HttpMethod.POST,"/posts")
                         .authenticated()
                 .antMatchers(HttpMethod.POST,"/sections").authenticated()
@@ -81,20 +88,16 @@ public class SecureConfig extends WebSecurityConfigurerAdapter {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("http://localhost:4200").allowedOrigins("*").allowedHeaders("*");
+                registry.addMapping("/**").allowedOrigins("http://localhost:4200");
             }
         };
     }
 
-    @Bean(name="myPasswordEncoder")
-    public PasswordEncoder getPasswordEncoder() {
-        DelegatingPasswordEncoder delPasswordEncoder=  (DelegatingPasswordEncoder)PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        BCryptPasswordEncoder bcryptPasswordEncoder =new BCryptPasswordEncoder();
-        delPasswordEncoder.setDefaultPasswordEncoderForMatches(bcryptPasswordEncoder);
-        return delPasswordEncoder;
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(new RegisterDAO()).and().jdbcAuthentication()
+                .dataSource(dataSource).passwordEncoder(passwordEncoder);
     }
-
-
 
 
 }
