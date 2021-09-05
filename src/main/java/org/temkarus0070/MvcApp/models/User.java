@@ -1,16 +1,16 @@
 package org.temkarus0070.MvcApp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.security.core.GrantedAuthority;
 
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.util.Collection;
-import java.util.HashSet;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.*;
 
 @Entity
-public class User {
+@Table(name = "Users",schema = "public")
+public class User implements Serializable {
+    private static final long serialVersionUID = 8L;
 
 public User(){}
 
@@ -19,21 +19,47 @@ public User(){}
     this.password=myUserDetails.getPassword();
     if(myUserDetails.getAuthorities()!=null){
         if(authorities==null)
-            this.authorities=new HashSet<>();
+            this.authorities=new ArrayList<GrantedAuthority>();
         this.authorities.addAll(myUserDetails.getAuthorities());
     }
+    this.setEnabled(true);
+    this.setAccountNonLocked(true);
+    this.setCredentialNonExpired(true);
+    this.setAccountNonExpired(true);
     }
 
     @Column
     private String password;
 
     @Id
-    @Column
     private String username;
 
 
-    @ElementCollection(targetClass = GrantedAuthority.class)
-    private Collection<GrantedAuthority> authorities;
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+    private List<Post> postSet;
+
+    @OneToMany(mappedBy = "user")
+    private List<Comment> comments;
+
+    public List<Post> getPostSet() {
+        return postSet;
+    }
+
+    public void setPostSet(List<Post> postSet) {
+        this.postSet = postSet;
+    }
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<GrantedAuthority> authorities;
+
 
     @Column
     private boolean accountNonExpired;
@@ -63,11 +89,11 @@ public User(){}
         this.username = username;
     }
 
-    public Collection<GrantedAuthority> getAuthorities() {
+    public List<GrantedAuthority> getAuthorities() {
         return authorities;
     }
 
-    public void setAuthorities(Collection<GrantedAuthority> authorities) {
+    public void setAuthorities(List<GrantedAuthority> authorities) {
         this.authorities = authorities;
     }
 

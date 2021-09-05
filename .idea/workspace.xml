@@ -9,7 +9,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef4b07be-350a-447b-ac06-20336421fde2" name="Changes" comment="divide user and userDetails for spring security" />
+    <list default="true" id="ef4b07be-350a-447b-ac06-20336421fde2" name="Changes" comment="divide user and userDetails for spring security">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/Filters/SimpleCORSFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/converters/GrantedAuthorityToStringConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/SectionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/myMvcApp_war.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/myMvcApp_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/myMvcApp_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f/storage_v2/_src_/database/postgres.edMnLQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myMvcApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/myMvcApp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/MySpringMvcDispatcherServletInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/MySpringMvcDispatcherServletInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/SpringConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/secure/SecureConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/secure/SecureConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/PeopleController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/PostsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/PostsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/SectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/SectionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/Mappers/PersonMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/Mappers/PostMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/PersonDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/PostDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/RegisterDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/RegisterDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/Repository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/MyUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/MyUserDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Section.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +54,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -26,12 +63,20 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/Application.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/MySpringMvcDispatcherServletInitializer.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/RegisterDAO.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/secure/SecureConfig.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/RegisterDAO.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/MySpringMvcDispatcherServletInitializer.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/Application.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -81,10 +126,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.16601562" />
     <property name="project.structure.side.proportion" value="0.53809524" />
-    <property name="settings.editor.selected.configurable" value="preferences.pathVariables" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="excludedTypes">
@@ -93,7 +138,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.52">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.50">
     <configuration name="generated-requests#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -106,7 +151,7 @@
     <configuration name="generated-requests#4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="4" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="Tomcat 9.0.52" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.52" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 9.0.50" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.50" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER" value="false" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -199,7 +244,7 @@
       <item itemvalue="HTTP Request.generated-requests#2" />
       <item itemvalue="HTTP Request.generated-requests#3" />
       <item itemvalue="HTTP Request.generated-requests#4" />
-      <item itemvalue="Tomcat Server.Tomcat 9.0.52" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.50" />
     </list>
     <recent_temporary>
       <list>
@@ -228,6 +273,14 @@
       <workItem from="1630584977821" duration="790000" />
       <workItem from="1630738349023" duration="1284000" />
       <workItem from="1630747862539" duration="10333000" />
+      <workItem from="1630764409660" duration="5552000" />
+      <workItem from="1630771056404" duration="7419000" />
+      <workItem from="1630823047707" duration="36000" />
+      <workItem from="1630823095009" duration="810000" />
+      <workItem from="1630825207729" duration="11188000" />
+      <workItem from="1630841931010" duration="12525000" />
+      <workItem from="1630857927645" duration="179000" />
+      <workItem from="1630858117250" duration="11638000" />
     </task>
     <task id="LOCAL-00001" summary="small repair">
       <created>1630489762616</created>
@@ -269,45 +322,25 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/PostsController.java</url>
-          <line>25</line>
-          <properties class="org.temkarus0070.MvcApp.controllers.PostsController" method="index">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/PostsController.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/PostsController.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/secure/SecureConfig.java</url>
-          <line>40</line>
+          <line>57</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/RegisterDAO.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/RegisterDAO.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/RegisterDAO.java</url>
-          <line>67</line>
-          <option name="timeStamp" value="14" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/converters/GrantedAuthorityToStringConverter.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="95" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.springframework.security.authentication.UsernamePasswordAuthenticationToken" memberName="authenticated" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/myMvcApp$Tomcat_9_0_50.ic" NAME="Tomcat 9.0.50 Coverage Results" MODIFIED="1630860070114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

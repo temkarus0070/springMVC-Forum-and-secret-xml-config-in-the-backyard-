@@ -1,27 +1,42 @@
 package org.temkarus0070.MvcApp.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.function.EntityResponse;
 import org.temkarus0070.MvcApp.Exceptions.PostNotFoundException;
 import org.temkarus0070.MvcApp.dao.PostRepository;
+import org.temkarus0070.MvcApp.dao.SectionRepository;
+import org.temkarus0070.MvcApp.dao.UserRepository;
 import org.temkarus0070.MvcApp.models.Post;
+import org.temkarus0070.MvcApp.models.Section;
+import org.temkarus0070.MvcApp.models.User;
 
+import java.security.Principal;
 import java.util.List;
 
-@RestControllerAdvice
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RestController
 public class PostsController {
+    UserRepository userRepository;
     PostRepository postRepository;
+    SectionRepository sectionRepository;
+
+
+    @Autowired
+    public void setSectionRepository(SectionRepository sectionRepository) {
+        this.sectionRepository = sectionRepository;
+    }
+
+    @Autowired
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Autowired
     public void setPostRepository(PostRepository postRepository) {
         this.postRepository = postRepository;
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/posts")
     public List<Post> index(){
         List<Post> postList= postRepository.findAll();
@@ -38,10 +53,18 @@ public class PostsController {
 
 
 
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/posts/new")
-    public Post create(@RequestBody Post post){
-        postRepository.save(post);
-        return post;
+
+    @PostMapping(value = "/posts/new",consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void create(@RequestBody Post post,Principal principal){
+        Post post1=new Post();
+           User user= userRepository.findById(principal.getName()).get();
+           user.getAuthorities().forEach(e->
+    System.out.println(e.getAuthority()));
+           Section section=sectionRepository.findById(post.getSection().getId()).get();
+           if(user!=null) {
+                post.setUser(user);
+               post.setSection(section);
+               postRepository.save(post);
+           }
     }
 }

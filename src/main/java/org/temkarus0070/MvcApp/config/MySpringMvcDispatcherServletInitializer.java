@@ -4,6 +4,7 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import org.temkarus0070.MvcApp.Filters.SimpleCORSFilter;
 import org.temkarus0070.MvcApp.config.secure.SecureConfig;
 
 import javax.servlet.*;
@@ -49,6 +50,7 @@ public class MySpringMvcDispatcherServletInitializer extends AbstractAnnotationC
                 new HiddenHttpMethodFilter()).addMappingForUrlPatterns(
                 null,true,"/*"
         );
+        servletContext.addFilter("corsFilter",new SimpleCORSFilter()).addMappingForUrlPatterns(null,true,"/*","/**","/register");
 
 
     }

@@ -1,17 +1,17 @@
 package org.temkarus0070.MvcApp.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 import org.temkarus0070.MvcApp.dao.SectionDAO;
 import org.temkarus0070.MvcApp.models.Section;
 
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@RestController()
+@RequestMapping(path = "/sections")
+@CrossOrigin(origins = "http://localhost:4200")
 public class SectionController {
 
     private SectionDAO sectionDAO;
@@ -21,17 +21,20 @@ public class SectionController {
         this.sectionDAO = sectionDAO;
     }
 
-    @GetMapping( path = "section/")
+    @GetMapping()
+
     public List<Section> get(){
         return sectionDAO.findAll();
     }
 
-    @PostMapping(path = "section/")
+    @PreAuthorize("hasRole('admin')")
+    @PostMapping()
     public void add(Section section){
         sectionDAO.save(section);
     }
 
-    @DeleteMapping(path = "section/")
+    @PreAuthorize("hasRole('admin')")
+    @DeleteMapping()
     public void delete(Section section){
         sectionDAO.delete(section);
     }

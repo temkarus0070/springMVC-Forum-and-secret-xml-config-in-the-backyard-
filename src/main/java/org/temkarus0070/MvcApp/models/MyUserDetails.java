@@ -11,33 +11,31 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 
-@Entity
 public class MyUserDetails implements UserDetails, Serializable {
 
 
-    @Column
+
     private String password;
 
-    @Id
-    @Column
+
     private String username;
 
 
-    @ElementCollection(targetClass = GrantedAuthority.class)
-    private Collection<? extends GrantedAuthority> authorities;
+    private Collection<GrantedAuthority> authorities=new LinkedList<>();
 
-    @Column
+
     private boolean accountNonExpired;
 
-    @Column
+
     private boolean accountNonLocked;
 
-    @Column
+
     private boolean credentialNonExpired;
 
-    @Column
+
     private boolean enabled;
 
     public void setAccountNonExpired(boolean accountNonExpired) {
@@ -61,23 +59,26 @@ public class MyUserDetails implements UserDetails, Serializable {
     }
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        GrantedAuthority grantedAuthority=new GrantedAuthority() {
-            @Override
-            public String getAuthority() {
-                return "USER";
-            }
-        };
-        List<GrantedAuthority> grantedAuthorities=new ArrayList<>();
-        grantedAuthorities.add(grantedAuthority);
-        return grantedAuthorities;
+    public Collection<GrantedAuthority> getAuthorities() {
+
+        return authorities;
     }
 
-    public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
+    public void setAuthorities(Collection<GrantedAuthority> authorities) {
         this.authorities = authorities;
     }
 
     public MyUserDetails(){}
+
+    public MyUserDetails(String username,String password,Collection<GrantedAuthority>authorities,boolean enabled,boolean accountNonExpired,boolean accountNonLocked,boolean credentialNonExpired){
+        this.username=username;
+        this.password=password;
+        this.authorities.addAll(authorities);
+        this.enabled=enabled;
+        this.accountNonExpired=accountNonExpired;
+        this.accountNonLocked=accountNonLocked;
+        this.credentialNonExpired=credentialNonExpired;
+    }
 
 
    UserDetails  getUser(){
