@@ -1,7 +1,8 @@
 package org.temkarus0070.MvcApp.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.security.core.GrantedAuthority;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.temkarus0070.MvcApp.models.GrantedAuthority;
+import org.temkarus0070.MvcApp.converters.GrantedAuthorityToStringConverter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -17,11 +18,6 @@ public User(){}
     public User(MyUserDetails myUserDetails){
     this.username=myUserDetails.getUsername();
     this.password=myUserDetails.getPassword();
-    if(myUserDetails.getAuthorities()!=null){
-        if(authorities==null)
-            this.authorities=new ArrayList<GrantedAuthority>();
-        this.authorities.addAll(myUserDetails.getAuthorities());
-    }
     this.setEnabled(true);
     this.setAccountNonLocked(true);
     this.setCredentialNonExpired(true);
@@ -44,20 +40,22 @@ public User(){}
     }
 
     @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
-    private List<Post> postSet;
+    private List<Post> posts;
 
     @OneToMany(mappedBy = "user")
     private List<Comment> comments;
 
-    public List<Post> getPostSet() {
-        return postSet;
+    public List<Post> getPosts() {
+        return posts;
     }
 
-    public void setPostSet(List<Post> postSet) {
-        this.postSet = postSet;
+    public void setPosts(List<Post> postSet) {
+        this.posts = postSet;
     }
 
-    @ElementCollection(fetch = FetchType.EAGER)
+
+    @JsonIgnore()
+    @Convert(converter = GrantedAuthorityToStringConverter.class)
     private List<GrantedAuthority> authorities;
 
 

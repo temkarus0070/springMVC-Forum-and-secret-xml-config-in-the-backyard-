@@ -27,7 +27,7 @@ public class Post implements Serializable {
         this.header = header;
     }
 
-    @JsonIgnoreProperties("postSet")
+    @JsonIgnoreProperties({"posts","comments"})
     @ManyToOne()
     @JoinColumn(name = "user_id")
     private User user;

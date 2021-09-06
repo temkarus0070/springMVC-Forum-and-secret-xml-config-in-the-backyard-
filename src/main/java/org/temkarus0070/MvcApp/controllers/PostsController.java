@@ -58,8 +58,6 @@ public class PostsController {
     public void create(@RequestBody Post post,Principal principal){
         Post post1=new Post();
            User user= userRepository.findById(principal.getName()).get();
-           user.getAuthorities().forEach(e->
-    System.out.println(e.getAuthority()));
            Section section=sectionRepository.findById(post.getSection().getId()).get();
            if(user!=null) {
                 post.setUser(user);

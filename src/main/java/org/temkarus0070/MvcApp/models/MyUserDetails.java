@@ -1,7 +1,7 @@
 package org.temkarus0070.MvcApp.models;
 
 import org.hibernate.annotations.Type;
-import org.springframework.security.core.GrantedAuthority;
+import org.temkarus0070.MvcApp.models.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.Column;
@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MyUserDetails implements UserDetails, Serializable {
 
@@ -70,10 +71,11 @@ public class MyUserDetails implements UserDetails, Serializable {
 
     public MyUserDetails(){}
 
-    public MyUserDetails(String username,String password,Collection<GrantedAuthority>authorities,boolean enabled,boolean accountNonExpired,boolean accountNonLocked,boolean credentialNonExpired){
+    public MyUserDetails(String username, String password, Collection<GrantedAuthority> authorities, boolean enabled, boolean accountNonExpired, boolean accountNonLocked, boolean credentialNonExpired){
+        List<GrantedAuthority> grantedAuthorities= new ArrayList<>(authorities);
         this.username=username;
         this.password=password;
-        this.authorities.addAll(authorities);
+        this.authorities.addAll(grantedAuthorities);
         this.enabled=enabled;
         this.accountNonExpired=accountNonExpired;
         this.accountNonLocked=accountNonLocked;
