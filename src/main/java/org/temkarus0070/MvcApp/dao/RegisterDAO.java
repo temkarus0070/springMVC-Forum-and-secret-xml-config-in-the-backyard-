@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.temkarus0070.MvcApp.dao.Repositories.UserRepository;
 import org.temkarus0070.MvcApp.models.MyUserDetails;
 import org.temkarus0070.MvcApp.models.User;
 
@@ -18,7 +19,7 @@ public class RegisterDAO implements UserDetailsService {
 
 
     @Resource
-    private  UserRepository userRepository;
+    private UserRepository userRepository;
     LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean;
     EntityManager  entityManager;
 

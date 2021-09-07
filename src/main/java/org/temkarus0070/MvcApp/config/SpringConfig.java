@@ -23,6 +23,7 @@ import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
+import org.temkarus0070.MvcApp.dao.Repositories.PostRepository;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -30,7 +31,7 @@ import java.util.HashMap;
 @Configuration
 @EnableWebMvc
 @ComponentScan("org.temkarus0070.MvcApp")
-@EnableJpaRepositories(basePackageClasses = org.temkarus0070.MvcApp.dao.PostRepository.class)
+@EnableJpaRepositories(basePackageClasses = PostRepository.class)
 public class SpringConfig extends WebMvcConfigurationSupport{
     private final ApplicationContext applicationContext;
 

@@ -2,12 +2,9 @@ package org.temkarus0070.MvcApp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.temkarus0070.MvcApp.controllers.RegistrationController;
+import org.temkarus0070.MvcApp.controllers.AuthorizationController;
 
-@SpringBootApplication(scanBasePackageClasses = {RegistrationController.class})
+@SpringBootApplication(scanBasePackageClasses = {AuthorizationController.class})
 
 public class Application {
 
