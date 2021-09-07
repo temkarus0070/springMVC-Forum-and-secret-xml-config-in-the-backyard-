@@ -1,14 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="myMvcApp:war exploded">
-    <output-path>$PROJECT_DIR$/target/myMvcApp</output-path>
-    <properties id="maven-jee-properties">
-      <options>
-        <exploded>true</exploded>
-        <module>myMvcApp</module>
-        <packaging>war</packaging>
-        <unpackNestedArchives>false</unpackNestedArchives>
-      </options>
-    </properties>
+    <output-path>$PROJECT_DIR$/out/artifacts/myMvcApp_war_exploded</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -63,7 +55,6 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.12.3" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-parameter-names:2.12.3" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-tomcat:2.5.0" />
-          <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:9.0.46" />
           <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-el:9.0.46" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:5.3.7" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.3.7" />
@@ -108,9 +99,6 @@
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:5.5.0" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-crypto:5.5.0" />
         </element>
-      </element>
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/myMvcApp/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="myMvcApp/web/Web" />
     </root>

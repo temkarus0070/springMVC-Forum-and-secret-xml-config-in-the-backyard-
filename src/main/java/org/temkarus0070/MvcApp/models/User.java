@@ -1,39 +1,63 @@
 package org.temkarus0070.MvcApp.models;
 
-import org.springframework.security.core.GrantedAuthority;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.temkarus0070.MvcApp.models.GrantedAuthority;
+import org.temkarus0070.MvcApp.converters.GrantedAuthorityToStringConverter;
 
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.util.Collection;
-import java.util.HashSet;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.*;
 
 @Entity
-public class User {
+@Table(name = "Users",schema = "public")
+public class User implements Serializable {
+    private static final long serialVersionUID = 8L;
 
 public User(){}
 
     public User(MyUserDetails myUserDetails){
     this.username=myUserDetails.getUsername();
     this.password=myUserDetails.getPassword();
-    if(myUserDetails.getAuthorities()!=null){
-        if(authorities==null)
-            this.authorities=new HashSet<>();
-        this.authorities.addAll(myUserDetails.getAuthorities());
-    }
+    this.setEnabled(true);
+    this.setAccountNonLocked(true);
+    this.setCredentialNonExpired(true);
+    this.setAccountNonExpired(true);
     }
 
     @Column
     private String password;
 
     @Id
-    @Column
     private String username;
 
 
-    @ElementCollection(targetClass = GrantedAuthority.class)
-    private Collection<GrantedAuthority> authorities;
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+    private List<Post> posts;
+
+    @OneToMany(mappedBy = "user")
+    private List<Comment> comments;
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> postSet) {
+        this.posts = postSet;
+    }
+
+
+    @JsonIgnore()
+    @Convert(converter = GrantedAuthorityToStringConverter.class)
+    private List<GrantedAuthority> authorities;
+
 
     @Column
     private boolean accountNonExpired;
@@ -63,11 +87,11 @@ public User(){}
         this.username = username;
     }
 
-    public Collection<GrantedAuthority> getAuthorities() {
+    public List<GrantedAuthority> getAuthorities() {
         return authorities;
     }
 
-    public void setAuthorities(Collection<GrantedAuthority> authorities) {
+    public void setAuthorities(List<GrantedAuthority> authorities) {
         this.authorities = authorities;
     }
 

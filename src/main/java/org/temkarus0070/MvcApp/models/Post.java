@@ -1,29 +1,68 @@
 package org.temkarus0070.MvcApp.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.sql.Date;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "Posts")
-public class Post {
+public class Post implements Serializable {
+
+
+    private static final long serialVersionUID = 1L;
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private int id;
-    private String authorId;
+
+    @Column
+    private String header;
+
+    public String getHeader() {
+        return header;
+    }
+
+    public void setHeader(String header) {
+        this.header = header;
+    }
+
+    @JsonIgnoreProperties({"posts","comments"})
+    @ManyToOne()
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @Column
     private String text;
-    private int sectionId;
-    private Date date;
+
+    @JsonIgnoreProperties("posts")
+    @ManyToOne()
+    @JoinColumn(name = "section_id")
+    private Section section;
+
+    @Temporal(TemporalType.DATE)
+    private java.util.Date date;
+
+    @OneToMany(mappedBy = "post")
+    private Set<Comment> comments;
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
+    }
 
     public Post() {
 
     }
 
-    public void setDate(Date date) {
+    public void setDate(java.util.Date date) {
         this.date = date;
     }
 
-    public Date getDate() {
+    public java.util.Date getDate() {
         return date;
     }
 
@@ -31,23 +70,23 @@ public class Post {
         return id;
     }
 
-    public Post(int id, String authorId, String text, int sectionId) {
+    public Post(int id, User user, String text, Section section) {
         this.id = id;
-        this.authorId = authorId;
+        this.user = user;
         this.text = text;
-        this.sectionId = sectionId;
+        this.section = section;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public String getAuthorId() {
-        return authorId;
+    public User getUser() {
+        return user;
     }
 
-    public void setAuthorId(String authorId) {
-        this.authorId = authorId;
+    public void setUser(User authorId) {
+        this.user = authorId;
     }
 
     public String getText() {
@@ -58,11 +97,11 @@ public class Post {
         this.text = text;
     }
 
-    public int getSectionId() {
-        return sectionId;
+    public Section getSection() {
+        return section;
     }
 
-    public void setSectionId(int sectionId) {
-        this.sectionId = sectionId;
+    public void setSection(Section sectionId) {
+        this.section = sectionId;
     }
 }

@@ -1,0 +1,478 @@
+Index: src/main/webapp/WEB-INF/views/register/register.html
+===================================================================
+diff --git a/src/main/webapp/WEB-INF/views/register/register.html b/src/main/webapp/WEB-INF/views/register/register.html
+deleted file mode 100644
+--- a/src/main/webapp/WEB-INF/views/register/register.html	(revision 805f8205a717b75a437feb9e471cc191335e940d)
++++ /dev/null	(revision 805f8205a717b75a437feb9e471cc191335e940d)
+@@ -1,16 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Title</title>
+-</head>
+-<body>
+-<form th:action="@{/register}" method="post">
+-    <label for="userName">username</label>
+-    <input type="text" name="username" id="userName"/>
+-    <label for="password">password</label>
+-    <input type="password" name="password" id="password"/>
+-    <input type="submit" value="Register">
+-</form>
+-</body>
+-</html>
+\ No newline at end of file
+Index: src/main/webapp/WEB-INF/styles/login.css
+===================================================================
+diff --git a/src/main/webapp/WEB-INF/styles/login.css b/src/main/webapp/WEB-INF/styles/login.css
+deleted file mode 100644
+--- a/src/main/webapp/WEB-INF/styles/login.css	(revision 805f8205a717b75a437feb9e471cc191335e940d)
++++ /dev/null	(revision 805f8205a717b75a437feb9e471cc191335e940d)
+@@ -1,7 +0,0 @@
+-form .div{
+-    margin-bottom: 40px;
+-}
+-
+-input [type=submit]{
+-    background-color: dodgerblue;
+-}
+\ No newline at end of file
+Index: src/main/webapp/WEB-INF/views/posts/show.html
+===================================================================
+diff --git a/src/main/webapp/WEB-INF/views/posts/show.html b/src/main/webapp/WEB-INF/views/posts/show.html
+deleted file mode 100644
+--- a/src/main/webapp/WEB-INF/views/posts/show.html	(revision 805f8205a717b75a437feb9e471cc191335e940d)
++++ /dev/null	(revision 805f8205a717b75a437feb9e471cc191335e940d)
+@@ -1,23 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Show</title>
+-</head>
+-<body>
+-<form>
+-    <div>
+-    <label for="authorId">Author</label>
+-    <input disabled th:value="${post.getAuthorId()}" id="authorId">
+-    </div>
+-    <div>
+-        <label for="date">Date</label>
+-        <input disabled th:value="${post.getDate()}" id="date">
+-    </div>
+-    <div>
+-        <label for="text">Description</label>
+-        <textarea th:value="${post.getText()}" id="text"></textarea>
+-    </div>
+-</form>
+-</body>
+-</html>
+\ No newline at end of file
+Index: src/main/webapp/WEB-INF/views/people/edit.html
+===================================================================
+diff --git a/src/main/webapp/WEB-INF/views/people/edit.html b/src/main/webapp/WEB-INF/views/people/edit.html
+deleted file mode 100644
+--- a/src/main/webapp/WEB-INF/views/people/edit.html	(revision 805f8205a717b75a437feb9e471cc191335e940d)
++++ /dev/null	(revision 805f8205a717b75a437feb9e471cc191335e940d)
+@@ -1,31 +0,0 @@
+-<!DOCTYPE html>
+-
+-<html xmlns="http://www.w3.org/1999/xhtml"
+-      xmlns:th="http://www.thymeleaf.org">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Edit</title>
+-    <style>
+-        .error{
+-            color:red;
+-        }
+-    </style>
+-</head>
+-<body>
+-<form th:method="PATCH"  th:action="@{/people/{id}(id=${person.getId()})}" th:object="${person}">
+-    <label for="name">name</label>
+-    <input type="text" th:field="*{name}" id="name"/>
+-    <div class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+-    <br/>
+-    <label for="age">age</label>
+-    <input type="number" id="age" th:field="*{age}">
+-    <div class="error" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</div>
+-    <br/>
+-    <label for="email">email</label>
+-    <input type="text" th:field="*{email}" id="email">
+-    <div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>
+-    <br/>
+-    <input type="submit" value="update" />
+-</form>
+-</body>
+-</html>
+\ No newline at end of file
+Index: src/main/webapp/WEB-INF/views/people/new.html
+===================================================================
+diff --git a/src/main/webapp/WEB-INF/views/people/new.html b/src/main/webapp/WEB-INF/views/people/new.html
+deleted file mode 100644
+--- a/src/main/webapp/WEB-INF/views/people/new.html	(revision 805f8205a717b75a437feb9e471cc191335e940d)
++++ /dev/null	(revision 805f8205a717b75a437feb9e471cc191335e940d)
+@@ -1,33 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en" >
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Title</title>
+-    <style>
+-        .error{
+-            color:red;
+-        }
+-    </style>
+-</head>
+-<body>
+-<form th:method="post"  th:action="@{/people}" th:object="${person}" enctype="multipart/form-data">
+-
+-    <label for="image">Avatar</label>
+-    <input type="file" name="userImage" id="image">
+-    <br/>
+-    <label for="name">name</label>
+-    <input type="text" th:field="*{name}" id="name"/>
+-    <div class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+-    <br/>
+-    <label for="age">age</label>
+-    <input type="number" id="age" th:field="*{age}">
+-    <div class="error" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</div>
+-    <br/>
+-    <label for="email">email</label>
+-    <input type="text" th:field="*{email}" id="email">
+-    <div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>
+-    <br/>
+-    <input type="submit" value="create" />
+-</form>
+-</body>
+-</html>
+\ No newline at end of file
+Index: src/main/webapp/WEB-INF/views/people/index.html
+===================================================================
+diff --git a/src/main/webapp/WEB-INF/views/people/index.html b/src/main/webapp/WEB-INF/views/people/index.html
+deleted file mode 100644
+--- a/src/main/webapp/WEB-INF/views/people/index.html	(revision 805f8205a717b75a437feb9e471cc191335e940d)
++++ /dev/null	(revision 805f8205a717b75a437feb9e471cc191335e940d)
+@@ -1,16 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en" xmlns:th="http://thymeleaf.org">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Все люди</title>
+-</head>
+-<body>
+-
+-<div th:each="person : ${people}">
+-    <a th:href="@{/people/{id}(id=${person.getId()})}" th:text="${person.getName()}">user</a>
+-</div>
+-<br/>
+-<hr/>
+-<a th:href="@{people/new}">new person</a>
+-</body>
+-</html>
+\ No newline at end of file
+Index: src/main/webapp/WEB-INF/views/fragments/header.html
+===================================================================
+diff --git a/src/main/webapp/WEB-INF/views/fragments/header.html b/src/main/webapp/WEB-INF/views/fragments/header.html
+deleted file mode 100644
+--- a/src/main/webapp/WEB-INF/views/fragments/header.html	(revision 805f8205a717b75a437feb9e471cc191335e940d)
++++ /dev/null	(revision 805f8205a717b75a437feb9e471cc191335e940d)
+@@ -1,16 +0,0 @@
+-<html xmlns="http://www.w3.org/1999/xhtml"
+-      xmlns:th="http://www.thymeleaf.org"
+-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Header</title>
+-</head>
+-<body>
+-<header class="pageHeader">
+-    <a th:href="@{/about}" th:text="about"></a>
+-    <div sec:authorize="isAuthenticated()">
+-        Welcome, <span sec:authentication="name">Username</span>
+-    </div>
+-</header>
+-</body>
+-</html>
+\ No newline at end of file
+Index: src/main/webapp/WEB-INF/views/people/show.html
+===================================================================
+diff --git a/src/main/webapp/WEB-INF/views/people/show.html b/src/main/webapp/WEB-INF/views/people/show.html
+deleted file mode 100644
+--- a/src/main/webapp/WEB-INF/views/people/show.html	(revision 805f8205a717b75a437feb9e471cc191335e940d)
++++ /dev/null	(revision 805f8205a717b75a437feb9e471cc191335e940d)
+@@ -1,15 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Person</title>
+-</head>
+-<body>
+-<p th:text="${person.getName()}">VALUE</p>
+-<p th:text="${person.getId()}">VALUE</p>
+-<a th:href="@{/people/{id}/edit(id=${person.getId()})}" th:text="edit"></a>
+-<form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
+-<input type="submit" value="Delete" />
+-</form>
+-</body>
+-</html>
+\ No newline at end of file
+Index: src/main/webapp/WEB-INF/views/posts/index.html
+===================================================================
+diff --git a/src/main/webapp/WEB-INF/views/posts/index.html b/src/main/webapp/WEB-INF/views/posts/index.html
+deleted file mode 100644
+--- a/src/main/webapp/WEB-INF/views/posts/index.html	(revision 805f8205a717b75a437feb9e471cc191335e940d)
++++ /dev/null	(revision 805f8205a717b75a437feb9e471cc191335e940d)
+@@ -1,10 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Title</title>
+-</head>
+-<body>
+-
+-</body>
+-</html>
+\ No newline at end of file
+Index: src/main/webapp/WEB-INF/views/posts/new.html
+===================================================================
+diff --git a/src/main/webapp/WEB-INF/views/posts/new.html b/src/main/webapp/WEB-INF/views/posts/new.html
+deleted file mode 100644
+--- a/src/main/webapp/WEB-INF/views/posts/new.html	(revision 805f8205a717b75a437feb9e471cc191335e940d)
++++ /dev/null	(revision 805f8205a717b75a437feb9e471cc191335e940d)
+@@ -1,10 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Title</title>
+-</head>
+-<body>
+-
+-</body>
+-</html>
+\ No newline at end of file
+Index: src/main/webapp/WEB-INF/views/login.html
+===================================================================
+diff --git a/src/main/webapp/WEB-INF/views/login.html b/src/main/webapp/WEB-INF/views/login.html
+deleted file mode 100644
+--- a/src/main/webapp/WEB-INF/views/login.html	(revision 805f8205a717b75a437feb9e471cc191335e940d)
++++ /dev/null	(revision 805f8205a717b75a437feb9e471cc191335e940d)
+@@ -1,67 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Login</title>
+-    <style>
+-        body{
+-            display: flex;
+-            justify-content: center;
+-            align-items: center;
+-        }
+-        form div{
+-            margin-bottom: 20px;
+-        }
+-
+-        .btn {
+-            background-color:beige;
+-            border-radius: 15px;
+-            font-weight: bold;
+-        }
+-
+-        .btn:hover{
+-            background-color: cadetblue;
+-        }
+-
+-        input{
+-            border-radius: 20px;
+-        }
+-
+-        a{
+-            background-color: beige;
+-            text-decoration: none;
+-        }
+-    </style>
+-</head>
+-<body>
+-<div class="container">
+-<form name="f" th:action="@{/login}" method="post">
+-    <fieldset>
+-        <legend>Please Login</legend>
+-        <div th:if="${param.error}" class="alert alert-error">
+-            Invalid username and password.
+-        </div>
+-        <div th:if="${param.logout}" class="alert alert-success">
+-            You have been logged out.
+-        </div>
+-        <div>
+-        <label for="username">Username</label>
+-        <input type="text" id="username" name="username"/>
+-        </div>
+-        <div>
+-        <label for="password">Password</label>
+-        <input type="password" id="password" name="password"/>
+-        </div>
+-        <div>
+-        <label for="rememberMe">remember me</label>
+-        <input type="checkbox" name="remember-me" id="rememberMe">
+-        </div>
+-        <div class="form-actions">
+-            <button type="submit" class="btn">Log in</button>
+-        </div>
+-    </fieldset>
+-</form>
+-<a th:href="@{/register}" th:text="Register"></a>
+-</div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: src/main/webapp/WEB-INF/views/home/about.html
+===================================================================
+diff --git a/src/main/webapp/WEB-INF/views/home/about.html b/src/main/webapp/WEB-INF/views/home/about.html
+deleted file mode 100644
+--- a/src/main/webapp/WEB-INF/views/home/about.html	(revision 805f8205a717b75a437feb9e471cc191335e940d)
++++ /dev/null	(revision 805f8205a717b75a437feb9e471cc191335e940d)
+@@ -1,16 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>About</title>
+-</head>
+-<body>
+-<div th:replace="fragments/header ::header">
+-
+-</div>
+-<div>
+-    <pre>Our blog was developed from August 2021 and until now
+-        Out blog use the most beautiful Java Framework like Spring</pre>
+-</div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: src/main/webapp/WEB-INF/views/home/home.html
+===================================================================
+diff --git a/src/main/webapp/WEB-INF/views/home/home.html b/src/main/webapp/WEB-INF/views/home/home.html
+deleted file mode 100644
+--- a/src/main/webapp/WEB-INF/views/home/home.html	(revision 805f8205a717b75a437feb9e471cc191335e940d)
++++ /dev/null	(revision 805f8205a717b75a437feb9e471cc191335e940d)
+@@ -1,12 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Home page</title>
+-</head>
+-<body>
+-<div th:replace="fragments/header :: header">
+-
+-</div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: src/main/java/org/temkarus0070/MvcApp/controllers/HomeController.java
+===================================================================
+diff --git a/src/main/java/org/temkarus0070/MvcApp/controllers/HomeController.java b/src/main/java/org/temkarus0070/MvcApp/controllers/HomeController.java
+deleted file mode 100644
+--- a/src/main/java/org/temkarus0070/MvcApp/controllers/HomeController.java	(revision 805f8205a717b75a437feb9e471cc191335e940d)
++++ /dev/null	(revision 805f8205a717b75a437feb9e471cc191335e940d)
+@@ -1,22 +0,0 @@
+-package org.temkarus0070.MvcApp.controllers;
+-
+-import org.springframework.stereotype.Component;
+-import org.springframework.stereotype.Controller;
+-import org.springframework.web.bind.annotation.GetMapping;
+-import org.springframework.web.bind.annotation.RequestMapping;
+-import org.springframework.web.bind.annotation.RequestMethod;
+-
+-@Controller
+-public class HomeController {
+-
+-    @GetMapping("/home")
+-    public String index(){
+-        return "home/home";
+-    }
+-
+-
+-    @GetMapping("/about")
+-    public String about(){
+-        return "home/about";
+-    }
+-}
+Index: .idea/libraries/Maven__org_thymeleaf_thymeleaf_spring4_Release.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring4_Release.xml b/.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring4_Release.xml
+new file mode 100644
+--- /dev/null	(date 1628879710855)
++++ b/.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring4_Release.xml	(date 1628879710855)
+@@ -0,0 +1,14 @@
++<component name="libraryTable">
++  <library name="Maven: org.thymeleaf:thymeleaf-spring4:Release" type="repository">
++    <properties maven-id="org.thymeleaf:thymeleaf-spring4:RELEASE" />
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/thymeleaf-spring4/3.0.12.RELEASE/thymeleaf-spring4-3.0.12.RELEASE.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/thymeleaf/3.0.12.RELEASE/thymeleaf-3.0.12.RELEASE.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/org/attoparser/attoparser/2.0.5.RELEASE/attoparser-2.0.5.RELEASE.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/org/unbescape/unbescape/1.1.6.RELEASE/unbescape-1.1.6.RELEASE.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_thymeleaf_thymeleaf_Release1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_thymeleaf_thymeleaf_Release1.xml b/.idea/libraries/Maven__org_thymeleaf_thymeleaf_Release1.xml
+new file mode 100644
+--- /dev/null	(date 1628879710839)
++++ b/.idea/libraries/Maven__org_thymeleaf_thymeleaf_Release1.xml	(date 1628879710839)
+@@ -0,0 +1,15 @@
++<component name="libraryTable">
++  <library name="Maven: org.thymeleaf:thymeleaf:Release1" type="repository">
++    <properties maven-id="org.thymeleaf:thymeleaf:RELEASE" />
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/thymeleaf/3.0.12.RELEASE/thymeleaf-3.0.12.RELEASE.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/ognl/ognl/3.1.26/ognl-3.1.26.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/org/javassist/javassist/3.20.0-GA/javassist-3.20.0-GA.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/org/attoparser/attoparser/2.0.5.RELEASE/attoparser-2.0.5.RELEASE.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/org/unbescape/unbescape/1.1.6.RELEASE/unbescape-1.1.6.RELEASE.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_springsecurity4_Release.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_springsecurity4_Release.xml b/.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_springsecurity4_Release.xml
+new file mode 100644
+--- /dev/null	(date 1628879710835)
++++ b/.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_springsecurity4_Release.xml	(date 1628879710835)
+@@ -0,0 +1,11 @@
++<component name="libraryTable">
++  <library name="Maven: org.thymeleaf.extras:thymeleaf-extras-springsecurity4:Release" type="repository">
++    <properties maven-id="org.thymeleaf.extras:thymeleaf-extras-springsecurity4:RELEASE" />
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity4/3.0.4.RELEASE/thymeleaf-extras-springsecurity4-3.0.4.RELEASE.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++  </library>
++</component>
+\ No newline at end of file
