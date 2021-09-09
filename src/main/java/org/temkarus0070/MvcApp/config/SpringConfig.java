@@ -32,7 +32,6 @@ import java.util.HashMap;
 @Configuration
 @EnableWebMvc
 @ComponentScan("org.temkarus0070.MvcApp")
-@EnableCaching
 @EnableJpaRepositories(basePackageClasses = PostRepository.class)
 public class SpringConfig extends WebMvcConfigurationSupport{
     private final ApplicationContext applicationContext;

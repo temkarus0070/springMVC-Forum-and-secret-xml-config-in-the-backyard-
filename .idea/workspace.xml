@@ -10,13 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef4b07be-350a-447b-ac06-20336421fde2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myMvcApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/myMvcApp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/SpringConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/PostsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/PostsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/Repositories/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/Repositories/PostRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Section.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,7 +255,7 @@
       <workItem from="1631010619584" duration="1944000" />
       <workItem from="1631023246238" duration="48000" />
       <workItem from="1631025210026" duration="155000" />
-      <workItem from="1631186046231" duration="5305000" />
+      <workItem from="1631186046231" duration="6153000" />
     </task>
     <task id="LOCAL-00001" summary="small repair">
       <created>1630489762616</created>
@@ -297,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631196375207</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add cache for post repository">
+      <created>1631197682538</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1631197682538</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,7 +322,8 @@
     <MESSAGE value="divide user and userDetails for spring security" />
     <MESSAGE value="repair a lot..." />
     <MESSAGE value="I have lost list of changes))" />
-    <option name="LAST_COMMIT_MESSAGE" value="I have lost list of changes))" />
+    <MESSAGE value="add cache for post repository" />
+    <option name="LAST_COMMIT_MESSAGE" value="add cache for post repository" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
