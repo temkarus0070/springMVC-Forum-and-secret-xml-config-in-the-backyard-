@@ -7,5 +7,4 @@ import org.temkarus0070.MvcApp.models.Section;
 
 @Repository
 public interface CommentRepository extends JpaRepository<Comment,Long> {
-
 }

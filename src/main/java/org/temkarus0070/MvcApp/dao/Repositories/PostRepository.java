@@ -1,6 +1,7 @@
 package org.temkarus0070.MvcApp.dao.Repositories;
 
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -13,18 +14,23 @@ import java.util.Optional;
 @Repository
 public interface PostRepository extends JpaRepository<Post,Integer> {
 
-    @Cacheable("appCache")
+    @Cacheable(value = "postsBySection")
     public List<Post> findAllBySectionId(int sectionId);
 
     @Override
-    @Cacheable("appCache")
-    Optional<Post> findById(Integer integer);
+    @Cacheable(value = "post", key = "#id")
+    Optional<Post> findById(Integer id);
 
     @Override
-    @Cacheable("appCache")
+    @Cacheable(value = "posts")
     List<Post> findAll();
 
     @Override
-    @CacheEvict(value = "post")
-    void deleteById(Integer integer);
+    @CacheEvict(value = {"post","posts","postsBySection"},key = "#id", allEntries = true)
+    void deleteById(Integer id);
+
+    @CachePut(value = "post",key = "#s.id")
+    @CacheEvict(value = {"posts","postsBySection"},allEntries = true)
+    @Override
+    <S extends Post> S save(S s);
 }
