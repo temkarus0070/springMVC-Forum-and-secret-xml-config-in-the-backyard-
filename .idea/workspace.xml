@@ -9,10 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef4b07be-350a-447b-ac06-20336421fde2" name="Changes" comment="divide user and userDetails for spring security">
+    <list default="true" id="ef4b07be-350a-447b-ac06-20336421fde2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/PostsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/PostsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/SectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/SectionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Section.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,6 +257,7 @@
       <workItem from="1631010619584" duration="1944000" />
       <workItem from="1631023246238" duration="48000" />
       <workItem from="1631025210026" duration="155000" />
+      <workItem from="1631186046231" duration="4013000" />
     </task>
     <task id="LOCAL-00001" summary="small repair">
       <created>1630489762616</created>
@@ -278,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630869934989</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="I have lost list of changes))">
+      <created>1631176387563</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1631176387563</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,7 +309,8 @@
     <MESSAGE value="small repair" />
     <MESSAGE value="divide user and userDetails for spring security" />
     <MESSAGE value="repair a lot..." />
-    <option name="LAST_COMMIT_MESSAGE" value="repair a lot..." />
+    <MESSAGE value="I have lost list of changes))" />
+    <option name="LAST_COMMIT_MESSAGE" value="I have lost list of changes))" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

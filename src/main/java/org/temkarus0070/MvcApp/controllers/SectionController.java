@@ -28,7 +28,7 @@ public class SectionController {
     }
 
     @PreAuthorize("hasRole('admin')")
-    @PostMapping("/new")
+    @PostMapping()
     public void add(@RequestBody Section section){
         sectionDAO.save(section);
     }

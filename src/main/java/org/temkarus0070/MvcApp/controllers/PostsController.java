@@ -46,7 +46,7 @@ public class PostsController {
        return postList;
     }
 
-    @GetMapping(path = "/getPostsBySection/{sectionId}")
+    @GetMapping(path = "/getPostsBySection")
     public List<Post> getPostsBySection(@RequestParam int sectionId) {
         return postRepository.findAllBySectionId(sectionId);
     }

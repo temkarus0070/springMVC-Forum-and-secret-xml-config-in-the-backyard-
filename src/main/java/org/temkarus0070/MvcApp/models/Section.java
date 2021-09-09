@@ -11,6 +11,8 @@ import java.util.List;
 @Table(name = "Sections",uniqueConstraints = @UniqueConstraint(columnNames = {"name"}))
 public class Section implements Serializable {
     private static final long serialVersionUID = 9L;
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private int id;
 
