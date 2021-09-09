@@ -10,20 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef4b07be-350a-447b-ac06-20336421fde2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/CommentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/CommentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/GrantedAuthority.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/CommentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/PostsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/PostsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/converters/GrantedAuthorityToStringConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/converters/GrantedAuthorityToStringConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/RegisterDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/RegisterDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/MyUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/MyUserDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/PostRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Section.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,7 +251,10 @@
       <workItem from="1630841931010" duration="12525000" />
       <workItem from="1630857927645" duration="179000" />
       <workItem from="1630858117250" duration="22056000" />
-      <workItem from="1630909480723" duration="6037000" />
+      <workItem from="1630909480723" duration="6123000" />
+      <workItem from="1631095476558" duration="382000" />
+      <workItem from="1631096071065" duration="36000" />
+      <workItem from="1631164078458" duration="2532000" />
     </task>
     <task id="LOCAL-00001" summary="small repair">
       <created>1630489762616</created>
@@ -283,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630869934989</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add comments and admin's right of delete everything">
+      <created>1630915544896</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1630915544896</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,7 +306,8 @@
     <MESSAGE value="small repair" />
     <MESSAGE value="divide user and userDetails for spring security" />
     <MESSAGE value="repair a lot..." />
-    <option name="LAST_COMMIT_MESSAGE" value="repair a lot..." />
+    <MESSAGE value="add comments and admin's right of delete everything" />
+    <option name="LAST_COMMIT_MESSAGE" value="add comments and admin's right of delete everything" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -329,6 +331,21 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/EmbeddedIds/AuthorityId.java</url>
           <line>32</line>
           <option name="timeStamp" value="166" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/PostsController.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="168" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/PostsController.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="169" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/PostsController.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="170" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

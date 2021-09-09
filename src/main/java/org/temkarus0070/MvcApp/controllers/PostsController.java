@@ -16,6 +16,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
+@RequestMapping(path = "/postS")
 public class PostsController {
     UserRepository userRepository;
     PostRepository postRepository;
@@ -37,13 +38,20 @@ public class PostsController {
         this.postRepository = postRepository;
     }
 
-    @GetMapping("/posts")
+    @GetMapping(path = "/getPostsBySection")
+    public List<Post> getPostsBySection(@RequestParam int sectionId ){
+        return postRepository.findAllBySectionId(sectionId);
+    }
+
+    @GetMapping()
     public List<Post> index(){
         List<Post> postList= postRepository.findAll();
        return postList;
     }
 
-    @GetMapping("/posts/{postId}")
+
+
+    @GetMapping(path = "/{postId}")
     public Post showPost(@PathVariable("postId") int postId){
         Post post=postRepository.findById(postId).get();
         if(post==null)
@@ -54,7 +62,9 @@ public class PostsController {
 
 
 
-    @PostMapping(value = "/posts/new",consumes = MediaType.APPLICATION_JSON_VALUE)
+
+
+    @PostMapping
     public void create(@RequestBody Post post,Principal principal){
         Post post1=new Post();
            User user= userRepository.findById(principal.getName()).get();

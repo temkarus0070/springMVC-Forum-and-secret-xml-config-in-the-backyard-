@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "Sections")
+@Table(name = "Sections",uniqueConstraints = @UniqueConstraint(columnNames = {"name"}))
 public class Section implements Serializable {
     private static final long serialVersionUID = 9L;
     @Id

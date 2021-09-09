@@ -11,6 +11,7 @@ import org.temkarus0070.MvcApp.models.User;
 import java.security.Principal;
 
 @RestController
+@RequestMapping(path = "/comment")
 public class CommentController {
     UserRepository userRepository;
     CommentRepository commentRepository;
@@ -25,7 +26,7 @@ public class CommentController {
         this.commentRepository = commentRepository;
     }
 
-    @PostMapping("comment/new")
+    @PostMapping()
     public void create(@RequestBody Comment comment, Principal principal){
         User user=userRepository.findById(principal.getName()).get();
         if(user!=null) {
@@ -34,7 +35,7 @@ public class CommentController {
         }
     }
 
-    @DeleteMapping("comment")
+    @DeleteMapping()
     public void delete(@RequestParam(name = "commentId") long commentId,Principal principal){
         User user=userRepository.findById(principal.getName()).get();
         GrantedAuthority grantedAuthority=new GrantedAuthority("admin");
