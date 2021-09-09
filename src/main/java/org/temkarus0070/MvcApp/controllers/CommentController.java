@@ -3,8 +3,8 @@ package org.temkarus0070.MvcApp.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.temkarus0070.MvcApp.models.GrantedAuthority;
 import org.springframework.web.bind.annotation.*;
-import org.temkarus0070.MvcApp.dao.CommentRepository;
-import org.temkarus0070.MvcApp.dao.UserRepository;
+import org.temkarus0070.MvcApp.dao.Repositories.CommentRepository;
+import org.temkarus0070.MvcApp.dao.Repositories.UserRepository;
 import org.temkarus0070.MvcApp.models.Comment;
 import org.temkarus0070.MvcApp.models.User;
 
