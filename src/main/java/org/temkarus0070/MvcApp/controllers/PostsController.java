@@ -18,7 +18,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping(path = "/posts")
+@RequestMapping(path = "/post")
 public class PostsController {
     UserRepository userRepository;
     PostRepository postRepository;
@@ -59,7 +59,7 @@ public class PostsController {
     }
 
 
-    @PostMapping(path = "/new",consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping()
     public void create(@RequestBody Post post,Principal principal){
            User user= userRepository.findById(principal.getName()).get();
            Section section=sectionRepository.findById(post.getSection().getId()).get();
