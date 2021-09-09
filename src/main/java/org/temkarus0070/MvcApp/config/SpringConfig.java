@@ -2,6 +2,7 @@ package org.temkarus0070.MvcApp.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -31,6 +32,7 @@ import java.util.HashMap;
 @Configuration
 @EnableWebMvc
 @ComponentScan("org.temkarus0070.MvcApp")
+@EnableCaching
 @EnableJpaRepositories(basePackageClasses = PostRepository.class)
 public class SpringConfig extends WebMvcConfigurationSupport{
     private final ApplicationContext applicationContext;

@@ -4,6 +4,7 @@ package org.temkarus0070.MvcApp.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class Section implements Serializable {
 
 
 
+    @NotNull
     @Column
     private String name;
 
