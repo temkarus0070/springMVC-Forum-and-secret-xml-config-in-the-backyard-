@@ -2,6 +2,7 @@ package org.temkarus0070.MvcApp.models;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -24,7 +25,7 @@ public class Section implements Serializable {
     private String name;
 
     @JsonIgnoreProperties("section")
-    @OneToMany(mappedBy = "section",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "section",fetch = FetchType.LAZY, cascade = {CascadeType.REMOVE})
     private List<Post> posts;
 
     public List<Post> getPosts() {

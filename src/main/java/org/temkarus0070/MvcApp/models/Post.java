@@ -46,7 +46,7 @@ public class Post implements Serializable {
     @Temporal(TemporalType.DATE)
     private java.util.Date date;
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post", cascade = {CascadeType.REMOVE})
     private Set<Comment> comments;
 
     public Set<Comment> getComments() {
