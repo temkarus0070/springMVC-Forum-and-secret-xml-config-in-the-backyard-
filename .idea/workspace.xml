@@ -9,8 +9,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef4b07be-350a-447b-ac06-20336421fde2" name="Changes" comment="rename AuthController, and add some new logic to app auth">
+    <list default="true" id="ef4b07be-350a-447b-ac06-20336421fde2" name="Changes" comment="add cache function for comments">
+      <change afterPath="$PROJECT_DIR$/.jpb/jpb-settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/10-01-postTextChangeForBigText-changelog.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/19-32-changelog.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/dbchangelog.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/liquibase.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myMvcApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/myMvcApp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/Repositories/SectionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/Repositories/SectionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +36,8 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="FlywayMigrationScript" />
+        <option value="JpaLiquibaseChangeLog" />
       </list>
     </option>
   </component>
@@ -38,11 +54,11 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/Application.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/MySpringMvcDispatcherServletInitializer.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/RegisterDAO.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/secure/SecureConfig.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/RegisterDAO.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/MySpringMvcDispatcherServletInitializer.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/Application.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -54,7 +70,7 @@
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="JPA Inspector" value="true" />
+        <entry key="JPA Inspector" value="false" />
         <entry key="JPA Palette" value="false" />
         <entry key="JPA Structure" value="false" />
       </map>
@@ -71,7 +87,6 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="alwaysUpdateSnapshots" value="true" />
-        <option name="mavenHome" value="$PROJECT_DIR$/../../../../../../Program Files/Apache Software Foundation/apache-maven-3.8.2" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -81,21 +96,38 @@
     </option>
   </component>
   <component name="ProjectId" id="1xWjsphAmKEyKwfy8G9XVmvbMIg" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.16601562" />
     <property name="project.structure.side.proportion" value="0.53809524" />
-    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+      <command value="mvn liquibase:update -Pproduction" />
+      <command value="mvn liquibase:generateChangeLog" />
+      <command value=" mvn liquibase:update" />
+    </option>
   </component>
   <component name="RunDashboard">
     <option name="excludedTypes">
@@ -117,7 +149,7 @@
     <configuration name="generated-requests#4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="4" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="Tomcat 9.0.52" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.52" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 9.0.52" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.50" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER" value="false" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -254,9 +286,11 @@
       <workItem from="1631010619584" duration="1944000" />
       <workItem from="1631023246238" duration="48000" />
       <workItem from="1631025210026" duration="155000" />
-      <workItem from="1631035727730" duration="347000" />
-      <workItem from="1631086161499" duration="212000" />
-      <workItem from="1631093325683" duration="26000" />
+      <workItem from="1631186046231" duration="6639000" />
+      <workItem from="1631204835544" duration="8030000" />
+      <workItem from="1631256693564" duration="4473000" />
+      <workItem from="1631270468963" duration="3172000" />
+      <workItem from="1631284626373" duration="5657000" />
     </task>
     <task id="LOCAL-00001" summary="small repair">
       <created>1630489762616</created>
@@ -279,14 +313,56 @@
       <option name="project" value="LOCAL" />
       <updated>1630869934989</updated>
     </task>
-    <task id="LOCAL-00004" summary="rename AuthController, and add some new logic to app auth">
-      <created>1631036066479</created>
+    <task id="LOCAL-00004" summary="I have lost list of changes))">
+      <created>1631176387563</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1631036066479</updated>
+      <updated>1631176387563</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="I have lost list of changes))">
+      <created>1631196375207</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1631196375207</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add cache for post repository">
+      <created>1631197682538</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1631197682538</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add cache to spring boot">
+      <created>1631198633483</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1631198633483</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add some restrictions to entities">
+      <created>1631198743197</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1631198743197</updated>
+    </task>
+    <task id="LOCAL-00009" summary="repair cache">
+      <created>1631216383242</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1631216383242</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add cache function for comments">
+      <created>1631263135032</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1631263135032</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,11 +381,17 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="small repair" />
     <MESSAGE value="divide user and userDetails for spring security" />
     <MESSAGE value="repair a lot..." />
-    <MESSAGE value="rename AuthController, and add some new logic to app auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="rename AuthController, and add some new logic to app auth" />
+    <MESSAGE value="I have lost list of changes))" />
+    <MESSAGE value="add cache for post repository" />
+    <MESSAGE value="add cache to spring boot" />
+    <MESSAGE value="add some restrictions to entities" />
+    <MESSAGE value="repair cache" />
+    <MESSAGE value="add cache function for comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="add cache function for comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -328,26 +410,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/EmbeddedIds/AuthorityId.java</url>
           <line>32</line>
           <option name="timeStamp" value="166" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/PostsController.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="172" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/PostsController.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="175" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/PostsController.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="177" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/PostsController.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="178" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

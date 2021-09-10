@@ -10,7 +10,7 @@ import org.temkarus0070.MvcApp.models.Section;
 import java.util.List;
 
 @RestController()
-@RequestMapping(path = "/sections")
+@RequestMapping(path = "/section")
 @CrossOrigin(origins = "http://localhost:4200")
 public class SectionController {
 
@@ -28,7 +28,7 @@ public class SectionController {
     }
 
     @PreAuthorize("hasRole('admin')")
-    @PostMapping("/new")
+    @PostMapping()
     public void add(@RequestBody Section section){
         sectionDAO.save(section);
     }

@@ -1,6 +1,7 @@
 package org.temkarus0070.MvcApp.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.Cache;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping(path = "/posts")
+@RequestMapping(path = "/post")
 public class PostsController {
     UserRepository userRepository;
     PostRepository postRepository;
@@ -46,7 +47,7 @@ public class PostsController {
        return postList;
     }
 
-    @GetMapping(path = "/getPostsBySection/{sectionId}")
+    @GetMapping(path = "/getPostsBySection")
     public List<Post> getPostsBySection(@RequestParam int sectionId) {
         return postRepository.findAllBySectionId(sectionId);
     }
@@ -59,7 +60,7 @@ public class PostsController {
     }
 
 
-    @PostMapping(path = "/new",consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping()
     public void create(@RequestBody Post post,Principal principal){
            User user= userRepository.findById(principal.getName()).get();
            Section section=sectionRepository.findById(post.getSection().getId()).get();

@@ -3,6 +3,7 @@ package org.temkarus0070.MvcApp.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -16,6 +17,7 @@ public class Post implements Serializable {
     @Id
     private int id;
 
+    @NotNull
     @Column
     private String header;
 
@@ -32,7 +34,8 @@ public class Post implements Serializable {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column
+    @NotNull
+    @Column(columnDefinition = "TEXT")
     private String text;
 
     @JsonIgnoreProperties("posts")
@@ -43,7 +46,7 @@ public class Post implements Serializable {
     @Temporal(TemporalType.DATE)
     private java.util.Date date;
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post", cascade = {CascadeType.REMOVE})
     private Set<Comment> comments;
 
     public Set<Comment> getComments() {
