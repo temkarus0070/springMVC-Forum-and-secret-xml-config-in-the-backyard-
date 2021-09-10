@@ -27,7 +27,9 @@
     <springData.version>2.5.4</springData.version>
     <hibernate.version>5.5.6.Final</hibernate.version>
     <boot.version>2.4.0</boot.version>
+    <liquibase.propertyFile>${project.basedir}/liquibase.properties</liquibase.propertyFile>
   </properties>
+
 
   <dependencies>
     <dependency>
@@ -62,6 +64,18 @@
       <artifactId>spring-boot-starter-data-rest</artifactId>
       <version>${boot.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.liquibase</groupId>
+      <artifactId>liquibase-core</artifactId>
+      <version>3.4.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.liquibase</groupId>
+      <artifactId>liquibase-maven-plugin</artifactId>
+      <version>3.4.1</version>
+    </dependency>
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
@@ -145,6 +159,16 @@
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.0</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.liquibase</groupId>
+          <artifactId>liquibase-maven-plugin</artifactId>
+          <version>3.4.1</version>
+          <configuration>
+            <propertyFile>src/main/resources/liquibase.properties</propertyFile>
+            <changeLogFile>src/main/resources/db/changelog/dbchangelog.xml</changeLogFile>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>

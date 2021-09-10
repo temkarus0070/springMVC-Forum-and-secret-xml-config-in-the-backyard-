@@ -35,7 +35,7 @@ public class Post implements Serializable {
     private User user;
 
     @NotNull
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String text;
 
     @JsonIgnoreProperties("posts")

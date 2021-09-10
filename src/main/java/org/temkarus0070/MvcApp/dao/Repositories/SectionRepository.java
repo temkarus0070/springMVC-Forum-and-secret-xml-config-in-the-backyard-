@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.temkarus0070.MvcApp.models.Section;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface SectionRepository extends JpaRepository<Section,Integer> {
@@ -14,9 +15,11 @@ public interface SectionRepository extends JpaRepository<Section,Integer> {
     @Override
     @Cacheable(value = "sections")
     List<Section> findAll();
+    
 
     @Override
-            @Cacheable(key = "section", value = "#s.id")
+            @Cacheable(key = "#s.id", value = "#s")
+    @CacheEvict(value = {"section","sections"},key = "#s.id")
     <S extends Section> S save(S s);
 
     @Override
