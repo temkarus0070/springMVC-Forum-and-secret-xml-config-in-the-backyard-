@@ -9,23 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef4b07be-350a-447b-ac06-20336421fde2" name="Changes" comment="add cache function for comments">
-      <change afterPath="$PROJECT_DIR$/.jpb/jpb-settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/10-01-postTextChangeForBigText-changelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/19-32-changelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/dbchangelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/liquibase.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myMvcApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/myMvcApp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/Repositories/SectionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/Repositories/SectionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="ef4b07be-350a-447b-ac06-20336421fde2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -290,7 +274,7 @@
       <workItem from="1631204835544" duration="8030000" />
       <workItem from="1631256693564" duration="4473000" />
       <workItem from="1631270468963" duration="3172000" />
-      <workItem from="1631284626373" duration="5657000" />
+      <workItem from="1631284626373" duration="5735000" />
     </task>
     <task id="LOCAL-00001" summary="small repair">
       <created>1630489762616</created>
@@ -362,7 +346,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631263135032</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add migration">
+      <created>1631293232616</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1631293232616</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,7 +382,8 @@
     <MESSAGE value="add some restrictions to entities" />
     <MESSAGE value="repair cache" />
     <MESSAGE value="add cache function for comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="add cache function for comments" />
+    <MESSAGE value="add migration" />
+    <option name="LAST_COMMIT_MESSAGE" value="add migration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
