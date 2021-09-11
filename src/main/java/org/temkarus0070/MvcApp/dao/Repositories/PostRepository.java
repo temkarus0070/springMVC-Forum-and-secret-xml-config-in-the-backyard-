@@ -30,7 +30,7 @@ public interface PostRepository extends JpaRepository<Post,Integer> {
     void deleteById(Integer id);
 
 
-    @CacheEvict(value = {"posts","postsBySection"},allEntries = true)
+    @CacheEvict(value = {"posts","postsBySection","post"},allEntries = true)
     @CachePut(value = "post",key = "#s.id")
     @Override
     <S extends Post> S save(S s);

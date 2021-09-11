@@ -62,13 +62,25 @@ public class PostsController {
 
     @PostMapping()
     public void create(@RequestBody Post post,Principal principal){
-           User user= userRepository.findById(principal.getName()).get();
-           Section section=sectionRepository.findById(post.getSection().getId()).get();
-           if(user!=null) {
-                post.setUser(user);
-               post.setSection(section);
-               postRepository.save(post);
-           }
+        if(post.getUser()==null) {
+            User user = userRepository.findById(principal.getName()).get();
+           Section section = sectionRepository.findById(post.getSection().getId()).get();
+            post.setUser(user);
+           post.setSection(section);
+        }
+        postRepository.save(post);
+    }
+
+    @PutMapping
+    public void update(@RequestBody Post post,Principal principal){
+            if(post.getUser()==null){
+
+            User user = userRepository.findById(principal.getName()).get();
+
+        }
+        Section section=sectionRepository.findById(post.getSection().getId()).get();
+        post.setSection(section);
+        postRepository.save(post);
     }
 
     @DeleteMapping()

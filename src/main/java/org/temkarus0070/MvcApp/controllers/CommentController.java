@@ -35,6 +35,11 @@ public class CommentController {
         }
     }
 
+    @PutMapping
+    public void update(@RequestBody Comment comment,Principal principal){
+        commentRepository.save(comment);
+    }
+
     @DeleteMapping()
     public void delete(@RequestParam(name = "commentId") long commentId,Principal principal){
         User user=userRepository.findById(principal.getName()).get();
