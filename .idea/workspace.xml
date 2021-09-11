@@ -9,22 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef4b07be-350a-447b-ac06-20336421fde2" name="Changes" comment="add cache function for comments">
-      <change afterPath="$PROJECT_DIR$/.jpb/jpb-settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/10-01-postTextChangeForBigText-changelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/19-32-changelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/dbchangelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/liquibase.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="ef4b07be-350a-447b-ac06-20336421fde2" name="Changes" comment="rename AuthController, and add some new logic to app auth">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/32c253af-85ba-4cc9-8e6d-3fca0961c45f/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myMvcApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/myMvcApp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.jpb/jpb-settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.jpb/jpb-settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/MySpringMvcDispatcherServletInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/MySpringMvcDispatcherServletInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/SectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/SectionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/Repositories/CommentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/Repositories/CommentRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/Repositories/SectionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/Repositories/SectionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/10-01-postTextChangeForBigText-changelog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/10-01-postTextChangeForBigText-changelog.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/19-32-changelog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/19-32-changelog.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/dbchangelog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/dbchangelog.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/liquibase.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/liquibase.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,11 +50,11 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/MySpringMvcDispatcherServletInitializer.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/RegisterDAO.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/Application.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/secure/SecureConfig.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/Application.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/RegisterDAO.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/MySpringMvcDispatcherServletInitializer.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -111,7 +107,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.16601562" />
     <property name="project.structure.side.proportion" value="0.53809524" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
@@ -149,7 +145,7 @@
     <configuration name="generated-requests#4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="4" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="Tomcat 9.0.52" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.50" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 9.0.52" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.52" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER" value="false" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -168,7 +164,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="51414" />
+        <option name="DEBUG_PORT" value="51417" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -291,6 +287,9 @@
       <workItem from="1631256693564" duration="4473000" />
       <workItem from="1631270468963" duration="3172000" />
       <workItem from="1631284626373" duration="5657000" />
+      <workItem from="1631294125114" duration="1781000" />
+      <workItem from="1631336996125" duration="194000" />
+      <workItem from="1631342891141" duration="4257000" />
     </task>
     <task id="LOCAL-00001" summary="small repair">
       <created>1630489762616</created>

@@ -26,23 +26,8 @@ public class MySpringMvcDispatcherServletInitializer extends AbstractAnnotationC
         return new String[]{"/"};
     }
 
-    @Override
-    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
-        registration.setMultipartConfig(
-                new MultipartConfigElement("/tmp")
-        );
-    }
 
-    @Override
-    public void onStartup(ServletContext servletContext) throws ServletException {
-        super.onStartup(servletContext);
-          registerServletFilter(servletContext);
-       var servlet= servletContext.addServlet("multipartServlet", new DispatcherServlet(
-                new AnnotationConfigWebApplicationContext()));
-       servlet.setLoadOnStartup(1);
-       servlet.addMapping("/");
-        servlet.setMultipartConfig(new MultipartConfigElement("/tmp",50000000,500000,0));
-    }
+
 
 
     private void registerServletFilter(ServletContext servletContext) {

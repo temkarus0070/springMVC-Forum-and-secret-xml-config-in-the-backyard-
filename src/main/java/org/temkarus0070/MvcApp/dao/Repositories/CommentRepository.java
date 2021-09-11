@@ -9,7 +9,7 @@ import org.temkarus0070.MvcApp.models.Section;
 @Repository
 public interface CommentRepository extends JpaRepository<Comment,Long> {
     @Override
-    @CacheEvict(key = "#s.post.id",value = {"post","posts"})
+    @CacheEvict(key = "#s.post.id",value = {"post","posts"}, allEntries = true)
     <S extends Comment> S save(S s);
 
     @Override
@@ -17,6 +17,6 @@ public interface CommentRepository extends JpaRepository<Comment,Long> {
     void deleteById(Long aLong);
 
     @Override
-    @CacheEvict(value = {"post"},key="#comment.post.id",allEntries = true)
+    @CacheEvict(value = {"post"},allEntries = true)
     void delete(Comment comment);
 }

@@ -18,11 +18,10 @@ public interface SectionRepository extends JpaRepository<Section,Integer> {
     
 
     @Override
-            @Cacheable(key = "#s.id", value = "#s")
-    @CacheEvict(value = {"section","sections"},key = "#s.id")
+    @CacheEvict(value = {"section","sections"},key = "#s.id", allEntries = true)
     <S extends Section> S save(S s);
 
     @Override
-    @CacheEvict(value = {"section","sections","posts"},key = "#s.id")
+    @CacheEvict(value = {"section","sections","posts"},key = "#s.id",allEntries = true)
     void deleteById(Integer integer);
 }
