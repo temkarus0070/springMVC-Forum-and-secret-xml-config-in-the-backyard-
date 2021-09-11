@@ -15,7 +15,7 @@ import java.util.Optional;
 public interface PostRepository extends JpaRepository<Post,Integer> {
 
     @Cacheable(value = "postsBySection")
-    public List<Post> findAllBySectionId(int sectionId);
+    List<Post> findAllBySectionId(int sectionId);
 
     @Override
     @Cacheable(value = "post", key = "#id")
@@ -29,8 +29,9 @@ public interface PostRepository extends JpaRepository<Post,Integer> {
     @CacheEvict(value = {"post","posts","postsBySection"},key = "#id", allEntries = true)
     void deleteById(Integer id);
 
-    @CachePut(value = "post",key = "#s.id")
+
     @CacheEvict(value = {"posts","postsBySection"},allEntries = true)
+    @CachePut(value = "post",key = "#s.id")
     @Override
     <S extends Post> S save(S s);
 }

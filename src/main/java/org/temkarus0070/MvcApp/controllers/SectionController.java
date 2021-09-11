@@ -35,8 +35,8 @@ public class SectionController {
 
     @PreAuthorize("hasRole('admin')")
     @DeleteMapping()
-    public void delete(Section section){
-        sectionDAO.delete(section);
+    public void delete(@RequestParam int sectionId){
+        sectionDAO.deleteById(sectionId);
     }
 
 
