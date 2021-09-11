@@ -9,14 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef4b07be-350a-447b-ac06-20336421fde2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/PostsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/PostsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/Repositories/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/Repositories/PostRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/Section.java" afterDir="false" />
-    </list>
+    <list default="true" id="ef4b07be-350a-447b-ac06-20336421fde2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -283,7 +276,7 @@
       <workItem from="1631270468963" duration="3172000" />
       <workItem from="1631284626373" duration="5735000" />
       <workItem from="1631363977402" duration="5617000" />
-      <workItem from="1631375576231" duration="896000" />
+      <workItem from="1631375576231" duration="1574000" />
     </task>
     <task id="LOCAL-00001" summary="small repair">
       <created>1630489762616</created>
@@ -369,7 +362,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631364089133</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="add something">
+      <created>1631377681385</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1631377681385</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,7 +399,8 @@
     <MESSAGE value="repair cache" />
     <MESSAGE value="add cache function for comments" />
     <MESSAGE value="add migration" />
-    <option name="LAST_COMMIT_MESSAGE" value="add migration" />
+    <MESSAGE value="add something" />
+    <option name="LAST_COMMIT_MESSAGE" value="add something" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -418,6 +419,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/models/EmbeddedIds/AuthorityId.java</url>
           <line>32</line>
           <option name="timeStamp" value="166" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/CommentController.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="168" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
