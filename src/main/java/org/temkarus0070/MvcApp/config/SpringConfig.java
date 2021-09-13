@@ -17,6 +17,7 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.TransactionManager;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -36,11 +37,6 @@ import java.util.HashMap;
 public class SpringConfig extends WebMvcConfigurationSupport{
     private final ApplicationContext applicationContext;
 
-    @Bean(name = "mvcHandlerMappingIntrospector")
-    public HandlerMappingIntrospector mvcHandlerMappingIntrospector() {
-        return new HandlerMappingIntrospector();
-    }
-
 
     @Autowired
     public SpringConfig(ApplicationContext applicationContext) {
@@ -56,7 +52,7 @@ public class SpringConfig extends WebMvcConfigurationSupport{
 
 
     @Bean
-     public static BCryptPasswordEncoder passwordEncoder(){
+     public static PasswordEncoder passwordEncoder(){
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         return bCryptPasswordEncoder;
     }
