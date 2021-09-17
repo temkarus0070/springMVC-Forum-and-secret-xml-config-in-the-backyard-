@@ -9,10 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef4b07be-350a-447b-ac06-20336421fde2" name="Changes" comment="рпара">
+    <list default="true" id="ef4b07be-350a-447b-ac06-20336421fde2" name="Changes" comment="add users to cache">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/Repositories/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/Repositories/PostRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/Repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/dao/Repositories/UserRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,7 +280,8 @@
       <workItem from="1631294125114" duration="1781000" />
       <workItem from="1631336996125" duration="194000" />
       <workItem from="1631342891141" duration="4293000" />
-      <workItem from="1631362537372" duration="652000" />
+      <workItem from="1631362537372" duration="698000" />
+      <workItem from="1631876360946" duration="24000" />
     </task>
     <task id="LOCAL-00001" summary="small repair">
       <created>1630489762616</created>
@@ -361,7 +360,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631348434838</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add users to cache">
+      <created>1631363230675</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1631363230675</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,7 +397,8 @@
     <MESSAGE value="repair cache" />
     <MESSAGE value="add cache function for comments" />
     <MESSAGE value="рпара" />
-    <option name="LAST_COMMIT_MESSAGE" value="рпара" />
+    <MESSAGE value="add users to cache" />
+    <option name="LAST_COMMIT_MESSAGE" value="add users to cache" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
