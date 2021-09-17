@@ -7,16 +7,16 @@ import org.temkarus0070.MvcApp.models.Comment;
 import org.temkarus0070.MvcApp.models.Section;
 
 @Repository
-public interface CommentRepository extends JpaRepository<Comment,Long> {
+public interface CommentRepository extends JpaRepository<Comment, Long> {
     @Override
-    @CacheEvict(key = "#s.post.id",value = {"post","posts"}, allEntries = true)
+    @CacheEvict(key = "#s.post.id", value = {"post", "posts"}, allEntries = true)
     <S extends Comment> S save(S s);
 
     @Override
-    @CacheEvict(value = {"posts","post"},allEntries = true)
+    @CacheEvict(value = {"posts", "post"}, allEntries = true)
     void deleteById(Long aLong);
 
     @Override
-    @CacheEvict(value = {"post"},allEntries = true)
+    @CacheEvict(value = {"post"}, allEntries = true)
     void delete(Comment comment);
 }

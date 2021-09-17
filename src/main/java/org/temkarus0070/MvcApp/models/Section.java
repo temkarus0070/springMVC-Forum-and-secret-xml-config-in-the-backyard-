@@ -25,7 +25,7 @@ public class Section implements Serializable {
     private String name;
 
     @JsonIgnoreProperties("section")
-    @OneToMany(mappedBy = "section",fetch = FetchType.LAZY, cascade = {CascadeType.REMOVE})
+    @OneToMany(mappedBy = "section",fetch = FetchType.LAZY, cascade = {CascadeType.REMOVE,CascadeType.PERSIST,CascadeType.REFRESH})
     private List<Post> posts;
 
     public List<Post> getPosts() {
