@@ -45,7 +45,7 @@ public class AuthorizationController {
     @PostMapping(path = "/register")
     public void register(@RequestBody MyUserDetails myUserDetails) {
         List<GrantedAuthority> grantedAuthorityCollection = new LinkedList<>();
-        grantedAuthorityCollection.add(new GrantedAuthority("admin"));
+        grantedAuthorityCollection.add(new GrantedAuthority("user"));
         String encodedPassword = passwordEncoder.encode(myUserDetails.getPassword());
         myUserDetails.setPassword(encodedPassword);
         User user = new User(myUserDetails);
