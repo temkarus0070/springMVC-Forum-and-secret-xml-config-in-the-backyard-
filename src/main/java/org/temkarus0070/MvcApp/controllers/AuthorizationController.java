@@ -41,7 +41,7 @@ public class AuthorizationController {
         this.registerDAO = registerDAO;
     }
 
-
+    @CrossOrigin({ "http://localhost:4200" })
     @PostMapping(path = "/register")
     public void register(@RequestBody MyUserDetails myUserDetails) {
         List<GrantedAuthority> grantedAuthorityCollection = new LinkedList<>();
