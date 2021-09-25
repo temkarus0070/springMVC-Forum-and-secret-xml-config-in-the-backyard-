@@ -4,6 +4,7 @@ package org.temkarus0070.MvcApp.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import org.temkarus0070.MvcApp.Exceptions.UserAlreadyRegisteredException;
 import org.temkarus0070.MvcApp.dao.RegisterDAO;
 import org.temkarus0070.MvcApp.dao.Repositories.UserRepository;
 import org.temkarus0070.MvcApp.models.GrantedAuthority;
@@ -43,14 +44,18 @@ public class AuthorizationController {
 
     @CrossOrigin({ "http://localhost:4200" })
     @PostMapping(path = "/register")
-    public void register(@RequestBody MyUserDetails myUserDetails) {
-        List<GrantedAuthority> grantedAuthorityCollection = new LinkedList<>();
-        grantedAuthorityCollection.add(new GrantedAuthority("admin"));
-        String encodedPassword = passwordEncoder.encode(myUserDetails.getPassword());
-        myUserDetails.setPassword(encodedPassword);
-        User user = new User(myUserDetails);
-        user.setAuthorities(grantedAuthorityCollection);
-        userRepository.save(user);
+    public void register(@RequestBody MyUserDetails myUserDetails) throws UserAlreadyRegisteredException {
+        if(userRepository.findById(myUserDetails.getUsername()).isEmpty()) {
+            List<GrantedAuthority> grantedAuthorityCollection = new LinkedList<>();
+            grantedAuthorityCollection.add(new GrantedAuthority("user"));
+            String encodedPassword = passwordEncoder.encode(myUserDetails.getPassword());
+            myUserDetails.setPassword(encodedPassword);
+            User user = new User(myUserDetails);
+            user.setAuthorities(grantedAuthorityCollection);
+            userRepository.save(user);
+        }
+        else
+            throw new UserAlreadyRegisteredException();
 
     }
 
