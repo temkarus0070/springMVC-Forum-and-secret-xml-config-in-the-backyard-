@@ -27,12 +27,14 @@ public class CommentController {
     }
 
     @PostMapping()
-    public void create(@RequestBody Comment comment, Principal principal){
+    public Comment create(@RequestBody Comment comment, Principal principal){
         User user=userRepository.findById(principal.getName()).get();
         if(user!=null) {
             comment.setUser(user);
             commentRepository.save(comment);
+            return comment;
         }
+        return null;
     }
 
     @PutMapping
