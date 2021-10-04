@@ -28,7 +28,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.temkarus0070.MvcApp.Filters.SimpleCORSFilter;
+
 import org.temkarus0070.MvcApp.dao.RegisterDAO;
 
 import javax.sql.DataSource;

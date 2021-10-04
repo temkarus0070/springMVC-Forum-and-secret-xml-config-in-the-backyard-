@@ -10,11 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef4b07be-350a-447b-ac06-20336421fde2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/config/SpringConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/AuthorizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/temkarus0070/MvcApp/controllers/AuthorizationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +103,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.16601562" />
     <property name="project.structure.side.proportion" value="0.53809524" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -123,6 +119,13 @@
     </option>
   </component>
   <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="GlassfishConfiguration" />
+        <option value="JBossConfiguration" />
+        <option value="JettyConfiguration" />
+      </set>
+    </option>
     <option name="excludedTypes">
       <set>
         <option value="HttpClient.HttpRequestRunConfigurationType" />
@@ -297,7 +300,9 @@
       <workItem from="1631363977402" duration="5617000" />
       <workItem from="1631375576231" duration="1687000" />
       <workItem from="1631555600006" duration="1576000" />
-      <workItem from="1631961537168" duration="2201000" />
+      <workItem from="1631961537168" duration="2416000" />
+      <workItem from="1632127531919" duration="7000" />
+      <workItem from="1633360152783" duration="490000" />
     </task>
     <task id="LOCAL-00001" summary="small repair">
       <created>1630489762616</created>
@@ -404,7 +409,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631557165589</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="remove not necessary CORSfilters">
+      <created>1631964257992</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1631964257992</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,7 +449,8 @@
     <MESSAGE value="add something" />
     <MESSAGE value="small refactor" />
     <MESSAGE value="delete some trash" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete some trash" />
+    <MESSAGE value="remove not necessary CORSfilters" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove not necessary CORSfilters" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -462,6 +475,16 @@
           <line>52</line>
           <option name="timeStamp" value="168" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.3.7/spring-beans-5.3.7.jar!/org/springframework/beans/factory/serviceloader/ServiceListFactoryBean.class</url>
+          <line>22</line>
+          <option name="timeStamp" value="169" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.3.7/spring-beans-5.3.7.jar!/org/springframework/beans/factory/serviceloader/ServiceListFactoryBean.class</url>
+          <line>23</line>
+          <option name="timeStamp" value="170" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
@@ -469,6 +492,10 @@
         <PinnedItemInfo parentTag="org.springframework.security.authentication.UsernamePasswordAuthenticationToken" memberName="authenticated" />
       </pinned-members>
     </pin-to-top-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/myMvcApp$Tomcat_9_0_50.ic" NAME="Tomcat 9.0.50 Coverage Results" MODIFIED="1630913407205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
