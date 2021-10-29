@@ -60,6 +60,14 @@ public class PostsController {
     }
 
 
+    @GetMapping(path = "/findPostsByHeader")
+    public List<Post> searchPostsByTitle(@RequestParam("header") String header){
+        return postRepository.getPostsByHeaderContaining(header);
+    }
+
+
+
+
     @PostMapping()
     public void create(@RequestBody Post post,Principal principal){
         if(post.getUser()==null) {

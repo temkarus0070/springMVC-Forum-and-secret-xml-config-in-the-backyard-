@@ -6,6 +6,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.temkarus0070.MvcApp.models.Post;
+import org.temkarus0070.MvcApp.models.Section;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -28,6 +29,13 @@ public interface PostRepository extends JpaRepository<Post,Integer> {
     @Override
     @CacheEvict(value = {"post","posts","postsBySection"},key = "#id", allEntries = true)
     void deleteById(Integer id);
+
+    @Cacheable(value = "posts", key = "#header")
+    List<Post> getPostsByHeaderContaining(String header);
+
+    Long countPostsBySectionId(int sectionId);
+
+    Long countPosts();
 
 
     @CacheEvict(value = {"posts","postsBySection","post"},allEntries = true)
