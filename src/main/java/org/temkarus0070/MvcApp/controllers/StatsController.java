@@ -3,7 +3,6 @@ package org.temkarus0070.MvcApp.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.temkarus0070.MvcApp.dao.Repositories.PostRepository;
-import org.temkarus0070.MvcApp.models.Section;
 
 
 @RequestMapping("/stats")
@@ -18,14 +17,10 @@ public class StatsController {
     }
 
 
-    @GetMapping(path = "/postsCount")
-    public Long getPostsCount(){
-        return postRepository.countPosts();
+    @GetMapping(path = "/postsCountByUser")
+    public Long getPostsCountByUser(@RequestParam String username){
+        return postRepository.countPostsByUserUsername(username);
     }
 
 
-    @GetMapping(path = "/postsCountBySection")
-    public Long getPostsCountBySection(@RequestParam int sectionId){
-        return postRepository.countPostsBySectionId(sectionId);
-    }
 }

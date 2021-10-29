@@ -1,9 +1,6 @@
 package org.temkarus0070.MvcApp.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.Cache;
-import org.springframework.http.MediaType;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.temkarus0070.MvcApp.Exceptions.PostNotFoundException;
 import org.temkarus0070.MvcApp.dao.Repositories.PostRepository;
@@ -62,7 +59,7 @@ public class PostsController {
 
     @GetMapping(path = "/findPostsByHeader")
     public List<Post> searchPostsByTitle(@RequestParam("header") String header){
-        return postRepository.getPostsByHeaderContaining(header);
+        return postRepository.getPostsByHeaderContainingIgnoreCase(header);
     }
 
 
